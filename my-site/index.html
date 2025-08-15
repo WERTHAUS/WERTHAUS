@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WERTHAUS Engenharia — Sua obra, nosso compromisso</title>
+  <meta name="description" content="Gerenciamento de obras residenciais de alto padrão, com qualidade, sofisticação e eficiência orçamentária.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind custom config (inline)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            werthaus: {
+              navy: '#0E3B6F', // azul marinho
+              navyDark: '#0d326a',
+              gray: '#F4F6F8',
+              accent: '#203A73'
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'ui-sans-serif', 'system-ui']
+          },
+          boxShadow: {
+            soft: '0 10px 25px rgba(0,0,0,.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Suaviza a rolagem */
+    html { scroll-behavior: smooth; }
+    /* Evita distorção da logo em qualquer tamanho */
+    .logo-img { height: 48px; width: auto; object-fit: contain; }
+    @media (min-width: 1024px) { .logo-img { height: 56px; } }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+  <!-- Barra superior fixa -->
+  <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-werthaus-navy backdrop-blur supports-[backdrop-filter]:bg-werthaus-navy/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#top" class="inline-flex items-center gap-3">
+          <!-- Use sua logo SVG/PNG em alta; esta é uma área segura para qualquer proporção -->
+          <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="logo-img" />
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-white/90">
+          <a href="#sobre" class="hover:text-white transition">Sobre</a>
+          <a href="#servicos" class="hover:text-white transition">Serviços</a>
+          <a href="#portfolio" class="hover:text-white transition">Portfólio</a>
+          <a href="#artigos" class="hover:text-white transition">Artigos</a>
+          <a href="#contato" class="inline-flex items-center rounded-xl bg-white px-4 py-2 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition">Solicite um orçamento</a>
+        </nav>
+        <!-- Botão mobile -->
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-white hover:bg-white/10" aria-label="Abrir menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M3.75 5.5h16.5v1.5H3.75V5.5Zm0 5.25h16.5v1.5H3.75v-1.5Zm0 5.25h16.5v1.5H3.75V16Z"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Menu mobile -->
+    <div id="mobileNav" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-werthaus-navy/95">
+      <div class="px-6 pb-6 pt-2 space-y-3 text-white/90">
+        <a href="#sobre" class="block" onclick="closeMenu()">Sobre</a>
+        <a href="#servicos" class="block" onclick="closeMenu()">Serviços</a>
+        <a href="#portfolio" class="block" onclick="closeMenu()">Portfólio</a>
+        <a href="#artigos" class="block" onclick="closeMenu()">Artigos</a>
+        <a href="#contato" class="block font-semibold text-white" onclick="closeMenu()">Solicite um orçamento</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative min-h-screen flex items-center justify-center">
+    <!-- Imagem de fundo: substitua o caminho abaixo pela sua foto em alta -->
+    <div class="absolute inset-0 -z-10 bg-center bg-cover" style="background-image:url('assets/hero-obra.jpg');"></div>
+    <!-- Overlay mais suave para legibilidade -->
+    <div class="absolute inset-0 -z-10 bg-werthaus-navy/60"></div>
+
+    <div class="relative z-10 mx-auto w-full max-w-4xl px-6 text-center text-white">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Sua obra, nosso compromisso.</h1>
+      <p class="mt-4 text-lg sm:text-xl text-white/90">Eficiência, sustentabilidade e excelência em construções de alto padrão.</p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 pb-24">
+        <a href="#contato" class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition">Solicite um orçamento</a>
+        <a href="#servicos" class="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-white hover:bg-white/10 transition">Conheça nossos serviços</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold text-werthaus-navy">Sobre a WERTHAUS</h2>
+          <p class="mt-6 text-lg leading-relaxed text-slate-700">Somos especialistas em <strong>gerenciamento de obras residenciais de alto padrão</strong>, priorizando qualidade, sofisticação e eficiência orçamentária. Atuamos com transparência e método, garantindo previsibilidade de prazos, custos e acabamentos.</p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Foco em obras a partir de R$ 1,5 milhão.</li>
+            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Processo claro: planejamento, orçamento e controle de qualidade.</li>
+            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Atendimento próximo e personalizado.</li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-soft">
+            <img src="assets/sobre.jpg" alt="Equipe WERTHAUS em obra" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="py-20 bg-werthaus-gray">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-3xl font-extrabold text-werthaus-navy text-center">Serviços</h2>
+      <p class="mt-4 text-center text-slate-600 max-w-2xl mx-auto">Do planejamento ao controle final, gerimos cada etapa para garantir excelência de execução e melhor uso do investimento.</p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Card -->
+        <div class="rounded-2xl bg-white p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v2H3V5zm2 4h14v10H5V9zm2 2v6h10v-6H7z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Gerenciamento completo</h3>
+          <p class="mt-2 text-slate-600">Coordenação de equipes, fornecedores e cronograma.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Planejamento & orçamento</h3>
+          <p class="mt-2 text-slate-600">Previsão de custos realista e gestão do orçamento.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3L1 9l11 6 9-4.91V17h2V9L12 3v4z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Controle de qualidade</h3>
+          <p class="mt-2 text-slate-600">Padrões técnicos e acabamento de alto nível.</p>
+        </div>
+        <div class="rounded-2xl bg-white p-6 shadow-soft">
+          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
+            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14v2H5V4zm0 4h14v2H5V8zm0 4h10v2H5v-2zm0 4h10v2H5v-2z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Relatórios & transparência</h3>
+          <p class="mt-2 text-slate-600">Acompanhamento com indicadores e registros fotográficos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfólio (teaser) -->
+  <section id="portfolio" class="py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-3xl font-extrabold text-werthaus-navy">Portfólio</h2>
+        <a href="https://instagram.com/wert.haus" target="_blank" class="text-sm text-werthaus-navy/80 hover:text-werthaus-navy underline">Ver mais no Instagram</a>
+      </div>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
+          <img src="assets/portfolio-1.jpg" alt="Obra 1" class="h-full w-full object-cover group-hover:scale-105 transition" />
+        </figure>
+        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
+          <img src="assets/portfolio-2.jpg" alt="Obra 2" class="h-full w-full object-cover group-hover:scale-105 transition" />
+        </figure>
+        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
+          <img src="assets/portfolio-3.jpg" alt="Obra 3" class="h-full w-full object-cover group-hover:scale-105 transition" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artigos -->
+  <section id="artigos" class="py-20 bg-werthaus-gray">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-3xl font-extrabold text-werthaus-navy">Artigos</h2>
+        <a href="#" class="text-sm text-werthaus-navy/80 hover:text-werthaus-navy underline">Ver todos</a>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-lg">Como funciona a obra por administração</h3>
+          <p class="mt-2 text-slate-600">Modelo transparente: custo real + taxa de gestão. Vantagens, riscos e como comparar com preço fechado.</p>
+          <a href="#" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
+        </article>
+        <article class="rounded-2xl bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-lg">Checklist de início de obra</h3>
+          <p class="mt-2 text-slate-600">Documentação, cronograma, contratação e controle — por onde começar sem erros.</p>
+          <a href="#" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
+        </article>
+        <article class="rounded-2xl bg-white p-6 shadow-soft">
+          <h3 class="font-semibold text-lg">Qualidade de acabamento: o que garantir</h3>
+          <p class="mt-2 text-slate-600">Normas, critérios objetivos e inspeções para alto padrão consistente.</p>
+          <a href="#" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos (placeholder) -->
+  <section class="py-20 bg-white">
+    <div class="mx-auto max-w-6xl px-6">
+      <h2 class="text-3xl font-extrabold text-werthaus-navy text-center">O que dizem nossos clientes</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
+          <p class="text-slate-700">“Transparência e organização acima do padrão. A obra fluiu sem sustos.”</p>
+          <footer class="mt-4 text-sm text-slate-500">— Cliente residencial, 2024</footer>
+        </blockquote>
+        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
+          <p class="text-slate-700">“Excelente controle de custos, entregando o que foi prometido.”</p>
+          <footer class="mt-4 text-sm text-slate-500">— Proprietário, 2025</footer>
+        </blockquote>
+        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
+          <p class="text-slate-700">“Equipe técnica muito atenta aos detalhes de acabamento.”</p>
+          <footer class="mt-4 text-sm text-slate-500">— Arquiteta parceira</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-20 bg-werthaus-navy text-white">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold">Vamos conversar sobre sua obra?</h2>
+          <p class="mt-4 text-white/90">Conte um pouco sobre seu projeto e retornaremos rapidamente com orientações e próximos passos.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="https://wa.me/5532999475023" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition" aria-label="Abrir WhatsApp">
+              <svg viewBox="0 0 32 32" class="h-5 w-5" fill="currentColor"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+              WhatsApp
+            </a>
+            <a href="mailto:werthaus.engenharia@outlook.com" class="inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-3 text-white hover:bg-white/10 transition" aria-label="Enviar e-mail">werthaus.engenharia@outlook.com</a>
+          </div>
+        </div>
+        <form class="rounded-2xl bg-white p-6 text-slate-800 shadow-soft">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="sm:col-span-2">
+              <label class="text-sm font-medium text-slate-700">Nome</label>
+              <input type="text" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="Seu nome" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-slate-700">E-mail</label>
+              <input type="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="voce@email.com" />
+            </div>
+            <div>
+              <label class="text-sm font-medium text-slate-700">Telefone</label>
+              <input type="tel" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="(xx) xxxxx-xxxx" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm font-medium text-slate-700">Mensagem</label>
+              <textarea rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="Conte sobre sua obra"></textarea>
+            </div>
+          </div>
+          <button type="button" class="mt-6 w-full rounded-xl bg-werthaus-navy px-6 py-3 font-semibold text-white shadow-soft hover:bg-werthaus-navyDark transition">Enviar</button>
+          <p class="mt-3 text-center text-xs text-slate-500">Ao enviar, você concorda com nossa política de privacidade.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-werthaus-navy text-white">
+    <div class="mx-auto max-w-6xl px-6 py-10 grid gap-8 sm:grid-cols-3">
+      <div>
+        <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS" class="h-8 w-auto object-contain" />
+        <p class="mt-4 text-white/80">Qualidade, sofisticação e eficiência na gestão da sua obra.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Contato</h4>
+        <ul class="mt-3 space-y-2 text-white/90">
+          <li><a href="mailto:werthaus.engenharia@outlook.com" class="hover:underline">werthaus.engenharia@outlook.com</a></li>
+          <li><a href="https://wa.me/5532999475023" target="_blank" class="hover:underline">WhatsApp</a></li>
+          <li>Juiz de Fora • MG</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Navegação</h4>
+        <ul class="mt-3 space-y-2 text-white/90">
+          <li><a href="#sobre" class="hover:underline">Sobre</a></li>
+          <li><a href="#servicos" class="hover:underline">Serviços</a></li>
+          <li><a href="#portfolio" class="hover:underline">Portfólio</a></li>
+          <li><a href="#artigos" class="hover:underline">Artigos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/70">
+        <p>© <span id="year"></span> WERTHAUS Engenharia. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-3">
+          <a href="https://instagram.com/wert.haus" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="Instagram">
+            <!-- Instagram icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+          </a>
+          <a href="https://wa.me/5532999475023" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="WhatsApp">
+            <!-- WhatsApp icon -->
+            <svg viewBox="0 0 32 32" fill="currentColor" class="h-5 w-5"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Ícones flutuantes (fixos) -->
+  <div class="fixed right-4 bottom-6 z-40 flex flex-col gap-3">
+    <a href="https://wa.me/5532999475023" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir WhatsApp">
+      <!-- WhatsApp SVG -->
+      <svg viewBox="0 0 32 32" fill="currentColor" class="h-6 w-6"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+      <span class="pointer-events-none absolute right-14 hidden rounded-lg bg-black/80 px-3 py-1 text-xs text-white opacity-0 shadow-md transition group-hover:block group-hover:opacity-100">Fale conosco</span>
+    </a>
+    <a href="https://instagram.com/wert.haus" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir Instagram">
+      <!-- Instagram SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+      <span class="pointer-events-none absolute right-14 hidden rounded-lg bg-black/80 px-3 py-1 text-xs text-white opacity-0 shadow-md transition group-hover:block group-hover:opacity-100">Ver Instagram</span>
+    </a>
+  </div>
+
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu mobile toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    function closeMenu(){ mobileNav.style.maxHeight = '0px'; }
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobileNav.style.maxHeight && mobileNav.style.maxHeight !== '0px';
+      mobileNav.style.maxHeight = isOpen ? '0px' : mobileNav.scrollHeight + 'px';
+    });
+
+    // Evita texto do hero ficar escondido atrás dos ícones no mobile (iOS safe area)
+    // Já adicionamos pb-24 no bloco de CTAs.
+
+    // Header: torna 100% opaco após rolar
+    const header = document.getElementById('siteHeader');
+    const onScroll = () => {
+      if (window.scrollY > 10) header.classList.add('bg-werthaus-navy');
+      else header.classList.remove('bg-werthaus-navy');
+    };
+    document.addEventListener('scroll', onScroll);
+  </script>
+</body>
+</html>
