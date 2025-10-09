@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artigos | WERTHAUS Engenharia</title>
+  <meta name="description" content="Artigos sobre gerenciamento de obras, qualidade e gestão de projetos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            werthaus: { navy: '#0E3B6F', navyDark: '#0d326a', gray: '#F4F6F8', accent: '#203A73' }
+          },
+          fontFamily: { sans: ['Montserrat', 'ui-sans-serif', 'system-ui'] },
+          boxShadow: { soft: '0 10px 25px rgba(0,0,0,.08)' }
+        }
+      }
+    }
+  </script>
+  <style> html { scroll-behavior: smooth; } .logo-img { height: 48px; width: auto; object-fit: contain; } @media (min-width:1024px){ .logo-img{height:56px;} } </style>
+</head>
+<body class="font-sans text-slate-800 antialiased">
+  <!-- Header (mesma estrutura do index) -->
+  <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-werthaus-navy backdrop-blur supports-[backdrop-filter]:bg-werthaus-navy/70">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="inline-flex items-center gap-3">
+          <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="logo-img" />
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-white/90">
+          <a href="index.html#sobre" class="hover:text-white transition">Sobre</a>
+          <a href="index.html#servicos" class="hover:text-white transition">Serviços</a>
+          <a href="index.html#portfolio" class="hover:text-white transition">Portfólio</a>
+          <a href="artigos.html" class="hover:text-white transition font-semibold">Artigos</a>
+          <a href="index.html#contato" class="inline-flex items-center rounded-xl bg-white px-4 py-2 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition">Solicite um orçamento</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-white hover:bg-white/10" aria-label="Abrir menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M3.75 5.5h16.5v1.5H3.75V5.5Zm0 5.25h16.5v1.5H3.75v-1.5Zm0 5.25h16.5v1.5H3.75V16Z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileNav" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-werthaus-navy/95">
+      <div class="px-6 pb-6 pt-2 space-y-3 text-white/90">
+        <a href="index.html#sobre" class="block" onclick="closeMenu()">Sobre</a>
+        <a href="index.html#servicos" class="block" onclick="closeMenu()">Serviços</a>
+        <a href="index.html#portfolio" class="block" onclick="closeMenu()">Portfólio</a>
+        <a href="artigos.html" class="block font-semibold text-white" onclick="closeMenu()">Artigos</a>
+        <a href="index.html#contato" class="block" onclick="closeMenu()">Solicite um orçamento</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-16">
+    <div class="mx-auto max-w-6xl px-6">
+      <header class="mb-8 flex items-end justify-between gap-4">
+        <h1 class="text-3xl font-extrabold text-werthaus-navy">Artigos</h1>
+        <p class="text-sm text-slate-600 max-w-xl">Textos sobre gestão de obras, planejamento, qualidade de acabamento e transparência para clientes.</p>
+      </header>
+
+      <div class="grid gap-6 md:grid-cols-3">
+        <!-- Exemplo de card; duplique para novos artigos -->
+        <article class="rounded-2xl bg-white p-0 shadow-soft overflow-hidden">
+          <img src="assets/artigo-exemplo.jpg" alt="Capa do artigo" class="w-full h-44 object-cover" />
+          <div class="p-6">
+            <h2 class="text-lg font-semibold text-werthaus-navy mb-2">Como funciona a obra por administração</h2>
+            <p class="text-slate-600 mb-4">Modelo transparente: custo real + taxa de gestão. Vantagens, riscos e como comparar com preço fechado.</p>
+            <a href="artigos/exemplo.html" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
+          </div>
+        </article>
+
+        <!-- Adicione mais cards seguindo o modelo acima -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (copiar o footer do index para manter consistência) -->
+  <footer class="bg-werthaus-navy text-white mt-12">
+    <div class="mx-auto max-w-6xl px-6 py-10 grid gap-8 sm:grid-cols-3">
+      <div>
+        <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS" class="h-8 w-auto object-contain" />
+        <p class="mt-4 text-white/80">Qualidade, sofisticação e eficiência na gestão da sua obra.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Contato</h4>
+        <ul class="mt-3 space-y-2 text-white/90">
+          <li><a href="mailto:contato@werthaus.eng.br" class="hover:underline">contato@werthaus.eng.br</a></li>
+          <li><a href="https://wa.me/5532999475023" target="_blank" class="hover:underline">WhatsApp</a></li>
+          <li>Juiz de Fora • MG</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold">Navegação</h4>
+        <ul class="mt-3 space-y-2 text-white/90">
+          <li><a href="index.html#sobre" class="hover:underline">Sobre</a></li>
+          <li><a href="index.html#servicos" class="hover:underline">Serviços</a></li>
+          <li><a href="index.html#portfolio" class="hover:underline">Portfólio</a></li>
+          <li><a href="artigos.html" class="hover:underline">Artigos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/70">
+        <p>© <span id="year"></span> WERTHAUS Engenharia. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-3">
+          <a href="https://instagram.com/wert.haus" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+          </a>
+          <a href="https://wa.me/5532999475023" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="WhatsApp">
+            <svg viewBox="0 0 32 32" fill="currentColor" class="h-5 w-5"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating icons (copiar do index se quiser) -->
+  <div class="fixed right-4 bottom-6 z-40 flex flex-col gap-3">
+    <a href="https://wa.me/5532999475023" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir WhatsApp">
+      <svg viewBox="0 0 32 32" fill="currentColor" class="h-6 w-6"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+    </a>
+    <a href="https://instagram.com/wert.haus" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    function closeMenu(){ mobileNav.style.maxHeight = '0px'; }
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobileNav.style.maxHeight && mobileNav.style.maxHeight !== '0px';
+      mobileNav.style.maxHeight = isOpen ? '0px' : mobileNav.scrollHeight + 'px';
+    });
+    const header = document.getElementById('siteHeader');
+    const onScroll = () => {
+      if (window.scrollY > 10) header.classList.add('bg-werthaus-navy');
+      else header.classList.remove('bg-werthaus-navy');
+    };
+    document.addEventListener('scroll', onScroll);
+  </script>
+</body>
+</html>
