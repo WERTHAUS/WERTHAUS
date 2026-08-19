@@ -171,22 +171,32 @@
               </div>
 
               <div class="border-t border-slate-100 pt-8">
-                <h3 class="text-lg font-bold text-slate-900">3. Qual padrão você imagina?</h3>
+                <h3 class="text-lg font-bold text-slate-900">3. Qual padrão melhor representa o seu projeto?</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500">Escolha pela combinação de arquitetura, materiais, acabamentos e nível de personalização — não apenas pelo valor de referência.</p>
                 <div class="mt-4 grid gap-3">
                   <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-4">
-                    <input class="sr-only" type="radio" name="standard" value="superior" required>
-                    <span class="block font-bold text-slate-900">Superior</span>
-                    <span class="mt-1 block text-sm text-slate-500">Boa arquitetura, materiais de primeira linha e soluções eficientes, com escolhas controladas.</span>
+                    <input class="sr-only" type="radio" name="standard" value="normal" required>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                      <span class="block font-bold text-slate-900">Normal</span>
+                      <span class="text-xs font-semibold text-werthaus-navy">Referência: R$ 3.500/m²</span>
+                    </div>
+                    <span class="mt-2 block text-sm leading-relaxed text-slate-500">Boa qualidade construtiva e de acabamento, com materiais de boas linhas, soluções convencionais e escolhas orientadas ao controle de custos.</span>
                   </label>
                   <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-4">
                     <input class="sr-only" type="radio" name="standard" value="alto">
-                    <span class="block font-bold text-slate-900">Alto padrão</span>
-                    <span class="mt-1 block text-sm text-slate-500">Esquadrias, revestimentos, instalações e acabamentos de nível elevado, com maior personalização.</span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                      <span class="block font-bold text-slate-900">Alto padrão</span>
+                      <span class="text-xs font-semibold text-werthaus-navy">Referência: R$ 4.500/m²</span>
+                    </div>
+                    <span class="mt-2 block text-sm leading-relaxed text-slate-500">Arquitetura mais elaborada, revestimentos e esquadrias de nível superior, maior personalização e soluções técnicas e de acabamento mais sofisticadas.</span>
                   </label>
                   <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-4">
                     <input class="sr-only" type="radio" name="standard" value="premium">
-                    <span class="block font-bold text-slate-900">Premium / autoral</span>
-                    <span class="mt-1 block text-sm text-slate-500">Projeto altamente personalizado, grandes vãos, materiais especiais, automação e soluções sob medida.</span>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                      <span class="block font-bold text-slate-900">Premium / autoral</span>
+                      <span class="text-xs font-semibold text-werthaus-navy">Referência: R$ 6.000/m²</span>
+                    </div>
+                    <span class="mt-2 block text-sm leading-relaxed text-slate-500">Projeto singular e altamente personalizado, com materiais especiais, grandes vãos, esquadrias premium, automação e soluções construtivas sob medida.</span>
                   </label>
                 </div>
               </div>
@@ -384,12 +394,12 @@
     const BRL = new Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL', maximumFractionDigits:0 });
 
     // Parâmetros comerciais preliminares: concentrados aqui para facilitar calibração futura.
-    const BASE_M2 = { superior: 4200, alto: 5200, premium: 6500 };
+    const BASE_M2 = { normal: 3500, alto: 4500, premium: 6000 };
     const FLOOR_FACTOR = { '1': 1.00, '2': 1.035, '3': 1.08 };
     const TERRAIN_FACTOR = { plano: 1.00, moderado: 1.06, complexo: 1.14 };
 
     function labelStandard(v){
-      return ({ superior:'Superior', alto:'Alto padrão', premium:'Premium / autoral' })[v] || v;
+      return ({ normal:'Normal', alto:'Alto padrão', premium:'Premium / autoral' })[v] || v;
     }
     function labelTerrain(v){
       return ({ plano:'Plano', moderado:'Declive/aclive moderado', complexo:'Topografia complexa' })[v] || v;
