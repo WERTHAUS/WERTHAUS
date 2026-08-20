@@ -6,9 +6,10 @@
     areaEquivalentFactor: 0.935,
 
     cub: Object.freeze({
+      source: 'Sinduscon-Juiz de Fora',
       referenceMonth: '2026-07',
-      normalR1N: 3082.77,
-      highR1A: 3824.03,
+      normalR1N: 2614.32,
+      highR1A: 3180.47,
       premiumFactor: 1.30
     }),
 
@@ -215,7 +216,7 @@
         centralPerM2: totalCentral / builtAreaM2,
         durationMonths,
         stages,
-        reference: { cubMonth: CONFIG.cub.referenceMonth, vauMonth: CONFIG.vau.referenceMonth, inccMonth: CONFIG.wall.inccCurrentMonth, configUpdatedAt: CONFIG.updatedAt }
+        reference: { cubSource: CONFIG.cub.source, cubMonth: CONFIG.cub.referenceMonth, vauMonth: CONFIG.vau.referenceMonth, inccMonth: CONFIG.wall.inccCurrentMonth, configUpdatedAt: CONFIG.updatedAt }
       },
       _calculation: {
         equivalentAreaM2, cubUnit, typologyFactor: typology.factor, topographyFactor: topography.factor, cubAdjustedCost,
