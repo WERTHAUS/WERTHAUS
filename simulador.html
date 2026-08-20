@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulador de investimento da obra | WERTHAUS Engenharia</title>
+  <meta name="description" content="Estime a faixa de investimento, a distribuição por etapas e o prazo provável da sua obra residencial com a WERTHAUS Engenharia." />
+  <meta name="theme-color" content="#0d326a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { werthaus: { navy:'#0E3B6F', navyDark:'#0d326a', gray:'#F4F6F8' } },
+          fontFamily: { sans:['Montserrat','ui-sans-serif','system-ui'] },
+          boxShadow: { card:'0 18px 50px rgba(13,50,106,.12)', soft:'0 10px 25px rgba(0,0,0,.08)' }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior:smooth; }
+    body { overflow-x:hidden; }
+    .option-card { transition:border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease; }
+    .option-card:hover { transform:translateY(-1px); }
+    .option-card:has(input:checked) { border-color:#0E3B6F; background:#f4f8fc; box-shadow:0 0 0 2px rgba(14,59,111,.08); }
+    .option-card:has(input:focus-visible) { outline:3px solid rgba(14,59,111,.18); outline-offset:2px; }
+    .step[hidden], #result[hidden] { display:none !important; }
+    .progress-dot[data-state="active"] { background:#0E3B6F; color:#fff; border-color:#0E3B6F; }
+    .progress-dot[data-state="done"] { background:#e9f0f8; color:#0E3B6F; border-color:#c7d6e7; }
+    .stage-bar { transition:width .7s ease; }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased bg-slate-50">
+  <header class="sticky top-0 z-50 bg-werthaus-navy/95 backdrop-blur border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" aria-label="Voltar para WERTHAUS Engenharia"><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="h-10 w-auto" /></a>
+      <a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener" class="text-sm font-semibold text-white/90 hover:text-white">Falar com a WERTHAUS</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-werthaus-navy text-white">
+      <div class="mx-auto max-w-5xl px-6 py-14 sm:py-20 text-center">
+        <p class="text-xs sm:text-sm font-bold uppercase tracking-[.18em] text-white/55">Estimativa de planejamento</p>
+        <h1 class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight">Quanto custa construir a casa que você está planejando?</h1>
+        <p class="mt-5 mx-auto max-w-3xl text-base sm:text-lg leading-relaxed text-white/78">Em cerca de um minuto, você recebe uma faixa de investimento, entende como esse valor tende a se distribuir ao longo da obra e vê um prazo provável para uma construção desse porte.</p>
+        <p class="mt-4 text-sm font-semibold text-white">Sem cadastro e sem precisar informar telefone ou e-mail.</p>
+      </div>
+    </section>
+
+    <section class="py-10 sm:py-14">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6">
+        <div id="simCard" class="rounded-3xl bg-white border border-slate-200 shadow-card overflow-hidden">
+          <div class="px-5 sm:px-8 pt-6 sm:pt-8">
+            <div id="progress" class="flex items-center" aria-label="Progresso da simulação">
+              <span class="progress-dot flex h-8 w-8 shrink-0 items-center justify-center rounded-full border text-xs font-bold" data-step-dot="1" data-state="active">1</span>
+              <span class="h-px flex-1 bg-slate-200" data-step-line="1"></span>
+              <span class="progress-dot flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-300 text-xs font-bold text-slate-400" data-step-dot="2">2</span>
+              <span class="h-px flex-1 bg-slate-200" data-step-line="2"></span>
+              <span class="progress-dot flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-300 text-xs font-bold text-slate-400" data-step-dot="3">3</span>
+            </div>
+            <div class="mt-2 grid grid-cols-3 text-center text-[10px] sm:text-xs text-slate-400"><span>Sua casa</span><span>Características</span><span>Análise</span></div>
+          </div>
+
+          <form id="estimatorForm" class="p-5 sm:p-8" novalidate>
+            <section class="step" data-step="1">
+              <p class="text-xs font-bold uppercase tracking-[.14em] text-werthaus-navy/50">Etapa 1 de 2</p>
+              <h2 class="mt-2 text-2xl font-extrabold text-slate-900">Conte um pouco sobre a casa que você imagina</h2>
+              <p class="mt-3 text-sm leading-relaxed text-slate-500">Não é preciso ter projeto pronto. Valores aproximados já são suficientes para esta análise inicial.</p>
+
+              <div class="mt-7 grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="terrainArea" class="text-sm font-semibold text-slate-700">Área do terreno</label>
+                  <div class="relative mt-2"><input id="terrainArea" name="terrainArea" type="number" min="80" max="20000" step="1" required inputmode="decimal" placeholder="Ex.: 400" class="w-full rounded-xl border border-slate-300 px-4 py-3.5 pr-12 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/15 focus:border-werthaus-navy" /><span class="absolute right-4 top-4 text-sm text-slate-400">m²</span></div>
+                </div>
+                <div>
+                  <label for="builtArea" class="text-sm font-semibold text-slate-700">Área construída total</label>
+                  <div class="relative mt-2"><input id="builtArea" name="builtArea" type="number" min="40" max="3000" step="1" required inputmode="decimal" placeholder="Ex.: 250" class="w-full rounded-xl border border-slate-300 px-4 py-3.5 pr-12 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/15 focus:border-werthaus-navy" /><span class="absolute right-4 top-4 text-sm text-slate-400">m²</span></div>
+                  <p class="mt-2 text-xs leading-relaxed text-slate-400">Some todos os pisos da casa. Não inclua gramados, pavimentos rústicos apoiados diretamente no solo nem laje de cobertura.</p>
+                </div>
+              </div>
+
+              <fieldset class="mt-7">
+                <legend class="text-sm font-semibold text-slate-700">Você já sabe qual sistema construtivo pretende utilizar? <span class="font-normal text-slate-400">(opcional)</span></legend>
+                <select id="typology" name="typology" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3.5 bg-white focus:outline-none focus:ring-2 focus:ring-werthaus-navy/15 focus:border-werthaus-navy">
+                  <option value="undecided">Ainda não sei / não está definido</option>
+                  <option value="conventionalConcrete">Estrutura de concreto convencional</option>
+                  <option value="structuralMasonry">Alvenaria estrutural</option>
+                  <option value="ecologicalBrick">Tijolo ecológico</option>
+                  <option value="steel">Estrutura metálica</option>
+                  <option value="steelEcologicalBrick">Estrutura metálica + tijolo ecológico</option>
+                </select>
+              </fieldset>
+
+              <div class="mt-8 flex justify-end"><button type="button" data-next="2" class="w-full sm:w-auto rounded-xl bg-werthaus-navy px-6 py-3.5 font-bold text-white shadow-soft hover:bg-werthaus-navyDark transition">Continuar</button></div>
+            </section>
+
+            <section class="step" data-step="2" hidden>
+              <p class="text-xs font-bold uppercase tracking-[.14em] text-werthaus-navy/50">Etapa 2 de 2</p>
+              <h2 class="mt-2 text-2xl font-extrabold text-slate-900">Qual dessas opções se aproxima mais do seu projeto?</h2>
+              <p class="mt-3 text-sm leading-relaxed text-slate-500">Escolha pensando na arquitetura, materiais, acabamentos e nível de personalização que você deseja.</p>
+
+              <fieldset class="mt-7">
+                <legend class="sr-only">Padrão do projeto</legend>
+                <div class="grid gap-3">
+                  <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-5"><input class="sr-only" type="radio" name="standard" value="normal" required><span class="block text-lg font-bold text-slate-900">Normal</span><span class="mt-2 block text-sm leading-relaxed text-slate-500">Bom padrão de construção e acabamento, materiais de boa qualidade e soluções convencionais bem executadas, com atenção ao custo.</span></label>
+                  <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-5"><input class="sr-only" type="radio" name="standard" value="high"><span class="block text-lg font-bold text-slate-900">Alto padrão</span><span class="mt-2 block text-sm leading-relaxed text-slate-500">Arquitetura mais elaborada, esquadrias maiores, revestimentos e metais de linhas superiores e maior nível de personalização.</span></label>
+                  <label class="option-card cursor-pointer rounded-2xl border border-slate-200 p-5"><input class="sr-only" type="radio" name="standard" value="premium"><span class="block text-lg font-bold text-slate-900">Premium / autoral</span><span class="mt-2 block text-sm leading-relaxed text-slate-500">Projeto altamente personalizado, grandes vãos, materiais nobres ou especiais, esquadrias premium, automação e soluções sob medida.</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="mt-8">
+                <legend class="text-sm font-semibold text-slate-700">Como é o terreno?</legend>
+                <div class="mt-3 grid gap-3">
+                  <label class="option-card cursor-pointer rounded-xl border border-slate-200 p-4"><input class="sr-only" type="radio" name="topography" value="flat" required><span class="font-bold text-slate-900">Plano</span><span class="mt-1 block text-xs leading-relaxed text-slate-500">Pouca ou nenhuma diferença de nível relevante para implantação.</span></label>
+                  <label class="option-card cursor-pointer rounded-xl border border-slate-200 p-4"><input class="sr-only" type="radio" name="topography" value="lightUphill"><span class="font-bold text-slate-900">Leve aclive</span><span class="mt-1 block text-xs leading-relaxed text-slate-500">O terreno sobe em relação à rua, sem necessidade provável de grandes contenções.</span></label>
+                  <label class="option-card cursor-pointer rounded-xl border border-slate-200 p-4"><input class="sr-only" type="radio" name="topography" value="lightDownhill"><span class="font-bold text-slate-900">Leve declive</span><span class="mt-1 block text-xs leading-relaxed text-slate-500">O terreno desce em relação à rua, mas a implantação tende a dispensar grandes estruturas aéreas.</span></label>
+                  <label class="option-card cursor-pointer rounded-xl border border-slate-200 p-4"><input class="sr-only" type="radio" name="topography" value="steepUphill"><span class="font-bold text-slate-900">Aclive acentuado</span><span class="mt-1 block text-xs leading-relaxed text-slate-500">Provavelmente exigirá cortes relevantes, contenções ou muros de arrimo para implantar a casa.</span></label>
+                  <label class="option-card cursor-pointer rounded-xl border border-slate-200 p-4"><input class="sr-only" type="radio" name="topography" value="steepDownhill"><span class="font-bold text-slate-900">Declive acentuado</span><span class="mt-1 block text-xs leading-relaxed text-slate-500">Provavelmente exigirá estruturas elevadas, contenções ou solução semelhante para vencer o desnível.</span></label>
+                </div>
+              </fieldset>
+
+              <div class="mt-8 flex flex-col-reverse sm:flex-row sm:justify-between gap-3"><button type="button" data-prev="1" class="rounded-xl border border-slate-300 px-6 py-3.5 font-semibold text-slate-700">Voltar</button><button type="submit" class="rounded-xl bg-werthaus-navy px-6 py-3.5 font-bold text-white shadow-soft hover:bg-werthaus-navyDark transition">Ver minha estimativa</button></div>
+            </section>
+          </form>
+
+          <section id="result" class="p-5 sm:p-8" hidden aria-live="polite">
+            <div class="rounded-3xl bg-werthaus-navy p-6 sm:p-8 text-white">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"><p class="text-xs font-bold uppercase tracking-[.16em] text-white/55">Sua faixa de investimento</p><span id="resultStandard" class="self-start rounded-full bg-white/10 px-3 py-1.5 text-xs font-semibold"></span></div>
+              <p id="resultRange" class="mt-4 text-3xl sm:text-5xl font-extrabold leading-tight"></p>
+              <p id="resultAreaContext" class="mt-4 text-sm sm:text-base text-white/78"></p>
+              <p id="resultPerM2" class="mt-2 text-sm sm:text-base font-semibold text-white"></p>
+              <p class="mt-5 max-w-2xl text-sm leading-relaxed text-white/68">Esta é uma estimativa de planejamento, construída a partir de referências atuais de custos da construção em Minas Gerais e ajustada às características que você informou. O orçamento real dependerá dos projetos, especificações e condições efetivas da obra.</p>
+            </div>
+
+            <details class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-5"><summary class="cursor-pointer font-bold text-slate-800">O que esta estimativa considera?</summary><p class="mt-3 text-sm leading-relaxed text-slate-600">A análise combina área da residência, padrão de acabamento, sistema construtivo, características do terreno, custos complementares da construção, regularização previdenciária e gerenciamento. A memória de cálculo não é exibida porque o objetivo desta ferramenta é oferecer uma referência simples para planejamento, e não substituir um orçamento executivo.</p></details>
+
+            <div class="mt-9">
+              <p class="text-xs font-bold uppercase tracking-[.16em] text-werthaus-navy/55">Entenda para onde vai o investimento</p>
+              <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900">Como esse valor tende a se distribuir ao longo da obra</h2>
+              <p class="mt-3 text-sm leading-relaxed text-slate-500">A distribuição abaixo usa o valor central da estimativa para facilitar a leitura. Ela representa uma composição típica para uma residência desse padrão.</p>
+              <div id="stageList" class="mt-6 space-y-5"></div>
+            </div>
+
+            <div class="mt-10 grid sm:grid-cols-[.72fr_1.28fr] gap-5">
+              <div class="rounded-3xl border border-slate-200 p-6 bg-slate-50">
+                <p class="text-xs font-bold uppercase tracking-[.14em] text-werthaus-navy/55">Prazo provável</p>
+                <p class="mt-3"><span id="durationMonths" class="text-4xl font-extrabold text-werthaus-navy"></span> <span class="font-bold text-slate-700">meses</span></p>
+                <p class="mt-3 text-sm leading-relaxed text-slate-500">Referência de planejamento para uma obra deste porte, considerando execução contínua e organização prévia das principais contratações.</p>
+              </div>
+              <div class="rounded-3xl bg-slate-950 p-6 sm:p-7 text-white">
+                <p class="text-xs font-bold uppercase tracking-[.14em] text-white/40">Próximo nível de precisão</p>
+                <h3 class="mt-3 text-2xl font-extrabold">Quer transformar esta estimativa em um cenário do seu projeto?</h3>
+                <p class="mt-3 text-sm leading-relaxed text-white/65">Um engenheiro da WERTHAUS pode analisar seu caso e indicar quais informações precisamos para aproximar esta estimativa das condições reais da sua obra.</p>
+                <a id="engineerWhatsapp" href="#" target="_blank" rel="noopener" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-white px-5 py-3.5 font-bold text-werthaus-navy">Falar com um engenheiro</a>
+              </div>
+            </div>
+
+            <div class="mt-6 flex flex-col sm:flex-row gap-3 sm:justify-between">
+              <button id="editSimulation" type="button" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700">Alterar dados da simulação</button>
+              <button id="copySummary" type="button" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700">Copiar resumo</button>
+            </div>
+            <p class="mt-5 text-xs leading-relaxed text-slate-400">Referências de custos disponíveis em agosto de 2026. Esta ferramenta tem caráter estimativo e não constitui proposta comercial, orçamento executivo ou garantia de preço e prazo.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-werthaus-navyDark text-white"><div class="mx-auto max-w-7xl px-6 py-8 flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between"><div><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="h-8 w-auto" /><p class="mt-2 text-xs text-white/50">Sua obra, nosso compromisso.</p></div><p class="text-xs text-white/45">Juiz de Fora • MG</p></div></footer>
+
+  <script src="assets/simulador-engine.js"></script>
+  <script>
+    const form = document.getElementById('estimatorForm');
+    const result = document.getElementById('result');
+    const simCard = document.getElementById('simCard');
+    const BRL = new Intl.NumberFormat('pt-BR', { style:'currency', currency:'BRL', maximumFractionDigits:0 });
+    let lastEstimate = null;
+
+    function validateStep(step) {
+      const section = document.querySelector(`.step[data-step="${step}"]`);
+      for (const field of section.querySelectorAll('input, select')) {
+        if (!field.checkValidity()) { field.reportValidity(); field.focus(); return false; }
+      }
+      return true;
+    }
+
+    function setProgress(step) {
+      document.querySelectorAll('[data-step-dot]').forEach((dot) => {
+        const n = Number(dot.dataset.stepDot);
+        dot.dataset.state = n === step ? 'active' : (n < step ? 'done' : 'todo');
+        if (n > step) dot.classList.add('border-slate-300','text-slate-400'); else dot.classList.remove('text-slate-400');
+      });
+      document.querySelectorAll('[data-step-line]').forEach((line) => {
+        line.classList.toggle('bg-werthaus-navy', Number(line.dataset.stepLine) < step);
+        line.classList.toggle('bg-slate-200', Number(line.dataset.stepLine) >= step);
+      });
+    }
+
+    function showStep(step, scroll=true) {
+      document.querySelectorAll('.step').forEach((section) => { section.hidden = Number(section.dataset.step) !== step; });
+      form.hidden = false;
+      result.hidden = true;
+      setProgress(step);
+      if (scroll) simCard.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+
+    function roundForDisplay(value, step=10000) { return Math.round(value / step) * step; }
+
+    function renderStages(stages) {
+      const list = document.getElementById('stageList');
+      list.innerHTML = stages.map((row) => {
+        const rounded = roundForDisplay(row.value, 1000);
+        return `<div><div class="flex items-end justify-between gap-4"><div><p class="text-sm font-bold text-slate-800">${row.label}</p><p class="mt-0.5 text-xs text-slate-400">${row.percent.toFixed(1).replace('.', ',')}% do investimento</p></div><p class="text-sm font-bold text-werthaus-navy">${BRL.format(rounded)}</p></div><div class="mt-2 h-2 rounded-full bg-slate-100 overflow-hidden"><div class="stage-bar h-full rounded-full bg-werthaus-navy" style="width:${Math.max(4,row.percent)}%"></div></div></div>`;
+      }).join('');
+    }
+
+    function whatsappMessage(estimate) {
+      const p = estimate.public, i = estimate.input;
+      const low = roundForDisplay(p.low), high = roundForDisplay(p.high);
+      return ['Olá! Fiz uma estimativa no site da WERTHAUS e gostaria de conversar sobre o meu projeto.','',`Área do terreno: ${i.terrainAreaM2} m²`,`Área construída: ${i.builtAreaM2} m²`,`Padrão: ${p.standardLabel}`,`Sistema construtivo: ${p.typologyLabel}`,`Terreno: ${p.topographyLabel}`,`Faixa estimada: ${BRL.format(low)} a ${BRL.format(high)}`,`Prazo de referência: ${p.durationMonths} meses`,'','Gostaria de entender como podemos aprofundar esta estimativa.'].join('\n');
+    }
+
+    function renderResult(estimate) {
+      const p = estimate.public;
+      const low = roundForDisplay(p.low), high = roundForDisplay(p.high);
+      const lowM2 = roundForDisplay(p.lowPerM2, 50), highM2 = roundForDisplay(p.highPerM2, 50);
+      document.getElementById('resultRange').textContent = `${BRL.format(low)} a ${BRL.format(high)}`;
+      document.getElementById('resultStandard').textContent = p.standardLabel;
+      document.getElementById('resultAreaContext').textContent = `Para uma residência de aproximadamente ${estimate.input.builtAreaM2.toLocaleString('pt-BR')} m² com as características que você informou.`;
+      document.getElementById('resultPerM2').textContent = `${BRL.format(lowM2)}/m² a ${BRL.format(highM2)}/m² construído`;
+      document.getElementById('durationMonths').textContent = p.durationMonths;
+      renderStages(p.stages);
+      document.getElementById('engineerWhatsapp').href = `https://wa.me/5532999475023?text=${encodeURIComponent(whatsappMessage(estimate))}`;
+      form.hidden = true;
+      result.hidden = false;
+      setProgress(3);
+      simCard.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+
+    document.querySelectorAll('[data-next]').forEach((button) => button.addEventListener('click', () => {
+      const current = Number(button.closest('.step').dataset.step);
+      if (!validateStep(current)) return;
+      showStep(Number(button.dataset.next));
+    }));
+    document.querySelectorAll('[data-prev]').forEach((button) => button.addEventListener('click', () => showStep(Number(button.dataset.prev))));
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!validateStep(2)) return;
+      const data = new FormData(form);
+      try {
+        lastEstimate = WerthausEstimator.estimate({ terrainAreaM2:data.get('terrainArea'), builtAreaM2:data.get('builtArea'), typologyKey:data.get('typology') || 'undecided', standardKey:data.get('standard'), topographyKey:data.get('topography') });
+        renderResult(lastEstimate);
+      } catch (error) { alert(error.message || 'Não foi possível calcular a estimativa. Revise os dados informados.'); }
+    });
+
+    document.getElementById('editSimulation').addEventListener('click', () => showStep(1));
+    document.getElementById('copySummary').addEventListener('click', async () => {
+      if (!lastEstimate) return;
+      const p = lastEstimate.public;
+      const low = roundForDisplay(p.low), high = roundForDisplay(p.high);
+      const text = `WERTHAUS — estimativa de obra\n${p.standardLabel} | ${lastEstimate.input.builtAreaM2} m²\nFaixa: ${BRL.format(low)} a ${BRL.format(high)}\nPrazo de referência: ${p.durationMonths} meses`;
+      try { await navigator.clipboard.writeText(text); document.getElementById('copySummary').textContent = 'Resumo copiado'; setTimeout(() => document.getElementById('copySummary').textContent = 'Copiar resumo', 1800); } catch {}
+    });
+
+    showStep(1, false);
+  </script>
+</body>
+</html>
