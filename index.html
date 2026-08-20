@@ -16,39 +16,373 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root{--navy:#0E3B6F;--navy-dark:#0d326a;--ink:#152238;--muted:#5f6c7b;--line:#dfe5ec;--soft:#f4f6f8;--shadow:0 18px 50px rgba(13,50,106,.12);--shadow-lg:0 24px 70px rgba(13,50,106,.16)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.5;overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit}.container{width:min(1180px,calc(100% - 40px));margin-inline:auto}.eyebrow{margin:0;color:rgba(14,59,111,.62);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.section-title{margin:.65rem 0 0;color:var(--navy);font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.035em}.section-copy{margin:1.25rem 0 0;color:var(--muted);font-size:1.05rem;line-height:1.8}.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.25rem;border-radius:12px;border:1px solid transparent;font-weight:800;transition:transform .2s ease,background .2s ease,border-color .2s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--navy);color:#fff}.btn-white{background:#fff;color:var(--navy)}.btn-outline-white{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}.btn-outline{border-color:#ccd5df;color:#354152;background:#fff}
-    header{position:fixed;z-index:50;inset:0 0 auto;background:rgba(13,50,106,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}.header-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:2rem}.logo{height:44px;width:auto;object-fit:contain}.desktop-nav{display:flex;align-items:center;gap:1.65rem;color:rgba(255,255,255,.9);font-size:.86rem}.desktop-nav a:hover{color:#fff}.header-cta{padding:.65rem .9rem;border-radius:10px;background:#fff;color:var(--navy);font-weight:800}.menu-btn{display:none;border:0;background:transparent;color:#fff;padding:.5rem;border-radius:10px}.mobile-nav{display:none;background:var(--navy-dark);padding:0 20px 20px;color:rgba(255,255,255,.92)}.mobile-nav a{display:block;padding:.55rem 0}
-    .hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:118px 0 92px;color:#fff;background-image:linear-gradient(90deg,rgba(13,50,106,.98) 0%,rgba(14,59,111,.88) 46%,rgba(14,59,111,.38) 100%),url('assets/hero-obra.jpg');background-size:cover;background-position:center}.hero-content{max-width:780px}.hero .eyebrow{color:rgba(255,255,255,.66)}.hero h1{margin:1.15rem 0 0;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.045em}.hero-copy{margin:1.45rem 0 0;max-width:720px;color:rgba(255,255,255,.84);font-size:clamp(1rem,2vw,1.22rem);line-height:1.75}.hero-tagline{margin:1rem 0 0;font-weight:800}.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}.hero-note{margin:.9rem 0 0;color:rgba(255,255,255,.6);font-size:.84rem}
-    .trust-wrap{position:relative;z-index:2;margin-top:-38px}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg)}.trust-item{padding:1.35rem 1.4rem;border-right:1px solid var(--line)}.trust-item:last-child{border-right:0}.trust-item strong{display:block;color:rgba(14,59,111,.68);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}.trust-item p{margin:.5rem 0 0;color:var(--muted);font-size:.85rem;line-height:1.65}
-    .sim-teaser{padding:94px 0;background:var(--soft)}.sim-shell{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}.sim-copy .section-copy{max-width:620px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2rem}.benefit{padding:1.15rem;border:1px solid #dbe3eb;border-radius:16px;background:rgba(255,255,255,.82)}.benefit-num{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:#e9f0f8;color:var(--navy);font-size:.78rem;font-weight:800}.benefit strong{display:block;margin-top:.85rem;font-size:.9rem;color:#243146}.benefit p{margin:.35rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.55}.sim-card{position:relative;overflow:hidden;padding:32px;border-radius:28px;background:var(--navy);color:#fff;box-shadow:var(--shadow-lg)}.sim-card:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:rgba(255,255,255,.06)}.sim-card>*{position:relative;z-index:1}.sim-card small{color:rgba(255,255,255,.55);font-weight:800;letter-spacing:.14em;text-transform:uppercase}.sim-card h3{margin:.8rem 0 0;font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.12}.sim-card p{margin:1rem 0 0;color:rgba(255,255,255,.72);line-height:1.7}.sim-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.5rem 0}.sim-proof div{padding:.9rem .75rem;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.05)}.sim-proof strong{display:block;font-size:.82rem}.sim-proof span{display:block;margin-top:.25rem;color:rgba(255,255,255,.52);font-size:.72rem}.sim-card .btn{width:100%}.sim-privacy{margin:.9rem 0 0!important;text-align:center;font-size:.75rem;color:rgba(255,255,255,.52)!important}
-    .method{padding:96px 0}.method-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px}.method-cards{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--line);gap:1px}.method-card{background:#fff;padding:28px}.method-card .number{color:rgba(14,59,111,.45);font-size:.8rem;font-weight:800}.method-card h3{margin:1rem 0 0;font-size:1.2rem}.method-card p{margin:.65rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.7}
-    .scope{padding:96px 0;background:#09111f;color:#fff}.scope .eyebrow{color:rgba(255,255,255,.4)}.scope .section-title{color:#fff;max-width:820px}.scope .section-copy{color:rgba(255,255,255,.62);max-width:760px}.scope-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden;background:rgba(255,255,255,.1);gap:1px}.scope-card{padding:28px;background:#09111f}.scope-card .number{color:rgba(255,255,255,.3);font-size:.73rem;font-weight:800;letter-spacing:.1em}.scope-card h3{margin:1rem 0 0;font-size:1.15rem}.scope-card p{margin:.65rem 0 0;color:rgba(255,255,255,.58);font-size:.86rem;line-height:1.7}
-    .portfolio{padding:96px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem}.section-head>a{color:var(--navy);font-size:.87rem;font-weight:800}.portfolio-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;margin-top:36px}.portfolio-side{display:grid;gap:18px}figure{margin:0}.project{position:relative;overflow:hidden;border-radius:24px;background:#edf1f5;min-height:260px}.project.large{min-height:520px}.project img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .7s ease}.project:hover img{transform:scale(1.025)}.project figcaption{position:absolute;z-index:2;inset:auto 0 0;padding:80px 22px 20px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.78))}.project figcaption strong{display:block}.project figcaption span{display:block;margin-top:.25rem;color:rgba(255,255,255,.68);font-size:.82rem}
-    .about{padding:96px 0;background:var(--soft)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}.about-image{overflow:hidden;border-radius:28px;box-shadow:var(--shadow);aspect-ratio:4/3;background:#dfe5ea}.about-image img{width:100%;height:100%;object-fit:cover}.about-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
-    .faq{padding:90px 0}.faq-head{text-align:center;max-width:760px;margin-inline:auto}.faq-list{margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}details{border-bottom:1px solid var(--line);padding:18px 0}details:last-child{border-bottom:0}summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;font-weight:800}summary::-webkit-details-marker{display:none}details p{margin:.8rem 2.5rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.75}.plus{color:var(--navy);font-size:1.5rem;font-weight:400;transition:transform .2s ease}details[open] .plus{transform:rotate(45deg)}
-    .contact{padding:88px 0;background:var(--navy);color:#fff;text-align:center}.contact .eyebrow{color:rgba(255,255,255,.5)}.contact h2{margin:.75rem auto 0;max-width:860px;font-size:clamp(2rem,4vw,3.1rem);line-height:1.08;letter-spacing:-.035em}.contact p{margin:1.2rem auto 0;max-width:690px;color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.75}.contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem;margin-top:1.7rem}
-    footer{padding:34px 0 78px;background:var(--navy-dark);color:#fff}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:2rem}.footer-logo{height:32px;width:auto}.footer-copy{margin:.6rem 0 0;color:rgba(255,255,255,.5);font-size:.8rem}.footer-meta{text-align:right;color:rgba(255,255,255,.52);font-size:.78rem}.wa-float{position:fixed;z-index:40;right:18px;bottom:20px;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.2)}.mobile-wa{display:none}
-    @media(max-width:900px){.desktop-nav{display:none}.menu-btn{display:block}.mobile-nav.open{display:block}.trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}.sim-shell,.method-grid,.about-grid{grid-template-columns:1fr}.sim-shell,.method-grid{gap:34px}.scope-grid{grid-template-columns:repeat(2,1fr)}.portfolio-grid{grid-template-columns:1fr}.project.large{min-height:420px}.portfolio-side{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.container{width:min(100% - 28px,1180px)}.hero{min-height:82vh;padding:102px 0 74px;background-position:62% center}.hero-actions{display:grid}.hero-actions .btn{width:100%}.trust-wrap{margin-top:-22px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)!important}.trust-item:last-child{border-bottom:0!important}.sim-teaser,.method,.scope,.portfolio,.about,.faq{padding:72px 0}.benefits{grid-template-columns:1fr}.sim-card{padding:24px}.sim-proof{grid-template-columns:1fr}.method-cards,.scope-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.portfolio-side{grid-template-columns:1fr}.project.large{min-height:360px}.project{min-height:260px}.about-grid{gap:32px}.about-actions{display:grid}.about-actions .btn{width:100%}.contact-actions{display:grid}.contact-actions .btn{width:100%}.footer-inner{align-items:flex-start;flex-direction:column}.footer-meta{text-align:left}.wa-float{display:none}.mobile-wa{display:block;position:fixed;z-index:45;inset:auto 0 0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}.mobile-wa a{display:flex;justify-content:center;align-items:center;min-height:46px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem}footer{padding-bottom:92px}}
+    :root {
+      --navy:#0E3B6F;
+      --navy-dark:#0d326a;
+      --ink:#152238;
+      --muted:#5f6c7b;
+      --line:#dfe5ec;
+      --soft:#f4f6f8;
+      --white:#fff;
+      --shadow:0 18px 50px rgba(13,50,106,.12);
+      --shadow-lg:0 24px 70px rgba(13,50,106,.16);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Montserrat,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff;line-height:1.5;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+    .container{width:min(1180px,calc(100% - 40px));margin-inline:auto}
+    .eyebrow{margin:0;color:rgba(14,59,111,.62);font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .section-title{margin:.65rem 0 0;color:var(--navy);font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.035em}
+    .section-copy{margin:1.25rem 0 0;color:var(--muted);font-size:1.05rem;line-height:1.8}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.25rem;border-radius:12px;border:1px solid transparent;font-weight:800;transition:transform .2s ease,background .2s ease,border-color .2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--navy);color:#fff}
+    .btn-white{background:#fff;color:var(--navy)}
+    .btn-outline-white{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+    .btn-outline{border-color:#ccd5df;color:#354152;background:#fff}
+
+    header{position:fixed;z-index:50;inset:0 0 auto;background:rgba(13,50,106,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
+    .header-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+    .logo{height:44px;width:auto;object-fit:contain}
+    .desktop-nav{display:flex;align-items:center;gap:1.65rem;color:rgba(255,255,255,.9);font-size:.86rem}
+    .desktop-nav a:hover{color:#fff}
+    .header-cta{padding:.65rem .9rem;border-radius:10px;background:#fff;color:var(--navy);font-weight:800}
+    .menu-btn{display:none;border:0;background:transparent;color:#fff;padding:.5rem;border-radius:10px}
+    .mobile-nav{display:none;background:var(--navy-dark);padding:0 20px 20px;color:rgba(255,255,255,.92)}
+    .mobile-nav a{display:block;padding:.55rem 0}
+
+    .hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:118px 0 92px;color:#fff;background-image:linear-gradient(90deg,rgba(13,50,106,.98) 0%,rgba(14,59,111,.88) 46%,rgba(14,59,111,.38) 100%),url('assets/hero-obra.jpg');background-size:cover;background-position:center}
+    .hero-content{max-width:780px}
+    .hero .eyebrow{color:rgba(255,255,255,.66)}
+    .hero h1{margin:1.15rem 0 0;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.045em}
+    .hero-copy{margin:1.45rem 0 0;max-width:720px;color:rgba(255,255,255,.84);font-size:clamp(1rem,2vw,1.22rem);line-height:1.75}
+    .hero-tagline{margin:1rem 0 0;font-weight:800}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+    .hero-note{margin:.9rem 0 0;color:rgba(255,255,255,.6);font-size:.84rem}
+
+    .trust-wrap{position:relative;z-index:2;margin-top:-38px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-lg)}
+    .trust-item{padding:1.35rem 1.4rem;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .trust-item strong{display:block;color:rgba(14,59,111,.68);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+    .trust-item p{margin:.5rem 0 0;color:var(--muted);font-size:.85rem;line-height:1.65}
+
+    .sim-teaser{padding:94px 0;background:var(--soft)}
+    .sim-shell{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+    .sim-copy .section-copy{max-width:620px}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2rem}
+    .benefit{padding:1.15rem;border:1px solid #dbe3eb;border-radius:16px;background:rgba(255,255,255,.82)}
+    .benefit-num{display:inline-flex;width:30px;height:30px;border-radius:50%;align-items:center;justify-content:center;background:#e9f0f8;color:var(--navy);font-size:.78rem;font-weight:800}
+    .benefit strong{display:block;margin-top:.85rem;font-size:.9rem;color:#243146}
+    .benefit p{margin:.35rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.55}
+    .sim-card{position:relative;overflow:hidden;padding:32px;border-radius:28px;background:var(--navy);color:#fff;box-shadow:var(--shadow-lg)}
+    .sim-card:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-90px;top:-90px;background:rgba(255,255,255,.06)}
+    .sim-card>*{position:relative;z-index:1}
+    .sim-card small{color:rgba(255,255,255,.55);font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .sim-card h3{margin:.8rem 0 0;font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.12}
+    .sim-card p{margin:1rem 0 0;color:rgba(255,255,255,.72);line-height:1.7}
+    .sim-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:1.5rem 0}
+    .sim-proof div{padding:.9rem .75rem;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.05)}
+    .sim-proof strong{display:block;font-size:.82rem}
+    .sim-proof span{display:block;margin-top:.25rem;color:rgba(255,255,255,.52);font-size:.72rem}
+    .sim-card .btn{width:100%}
+    .sim-privacy{margin:.9rem 0 0!important;text-align:center;font-size:.75rem;color:rgba(255,255,255,.52)!important}
+
+    .method{padding:96px 0}
+    .method-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px}
+    .method-cards{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--line);gap:1px}
+    .method-card{background:#fff;padding:28px}
+    .method-card .number{color:rgba(14,59,111,.45);font-size:.8rem;font-weight:800}
+    .method-card h3{margin:1rem 0 0;font-size:1.2rem}
+    .method-card p{margin:.65rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.7}
+
+    .scope{padding:96px 0;background:#09111f;color:#fff}
+    .scope .eyebrow{color:rgba(255,255,255,.4)}
+    .scope .section-title{color:#fff;max-width:820px}
+    .scope .section-copy{color:rgba(255,255,255,.62);max-width:760px}
+    .scope-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:42px;border:1px solid rgba(255,255,255,.1);border-radius:24px;overflow:hidden;background:rgba(255,255,255,.1);gap:1px}
+    .scope-card{padding:28px;background:#09111f}
+    .scope-card .number{color:rgba(255,255,255,.3);font-size:.73rem;font-weight:800;letter-spacing:.1em}
+    .scope-card h3{margin:1rem 0 0;font-size:1.15rem}
+    .scope-card p{margin:.65rem 0 0;color:rgba(255,255,255,.58);font-size:.86rem;line-height:1.7}
+
+    .portfolio{padding:96px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:1.5rem}
+    .section-head>a{color:var(--navy);font-size:.87rem;font-weight:800}
+    .portfolio-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px;margin-top:36px}
+    .portfolio-side{display:grid;gap:18px}
+    figure{margin:0}
+    .project{position:relative;overflow:hidden;border-radius:24px;background:#edf1f5;min-height:260px}
+    .project.large{min-height:520px}
+    .project img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .7s ease}
+    .project:hover img{transform:scale(1.025)}
+    .project figcaption{position:absolute;z-index:2;inset:auto 0 0;padding:80px 22px 20px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.78))}
+    .project figcaption strong{display:block}
+    .project figcaption span{display:block;margin-top:.25rem;color:rgba(255,255,255,.68);font-size:.82rem}
+
+    .about{padding:96px 0;background:var(--soft)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:center}
+    .about-image{overflow:hidden;border-radius:28px;box-shadow:var(--shadow);aspect-ratio:4/3;background:#dfe5ea}
+    .about-image img{width:100%;height:100%;object-fit:cover}
+    .credential-card{margin-top:1.6rem;padding:1.1rem 1.2rem;border:1px solid #d7e0e8;border-radius:16px;background:#fff}
+    .credential-card span{display:block;color:rgba(14,59,111,.58);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .credential-card strong{display:block;margin-top:.45rem;font-size:1rem;color:#223149}
+    .credential-card p{margin:.3rem 0 0;color:var(--muted);font-size:.8rem;line-height:1.55}
+    .about-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+
+    .faq{padding:90px 0}
+    .faq-head{text-align:center;max-width:760px;margin-inline:auto}
+    .faq-list{margin-top:38px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    details{border-bottom:1px solid var(--line);padding:18px 0}
+    details:last-child{border-bottom:0}
+    summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;font-weight:800}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:.8rem 2.5rem 0 0;color:var(--muted);font-size:.88rem;line-height:1.75}
+    .plus{color:var(--navy);font-size:1.5rem;font-weight:400;transition:transform .2s ease}
+    details[open] .plus{transform:rotate(45deg)}
+
+    .contact{padding:88px 0;background:var(--navy);color:#fff;text-align:center}
+    .contact .eyebrow{color:rgba(255,255,255,.5)}
+    .contact h2{margin:.75rem auto 0;max-width:860px;font-size:clamp(2rem,4vw,3.1rem);line-height:1.08;letter-spacing:-.035em}
+    .contact p{margin:1.2rem auto 0;max-width:690px;color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.75}
+    .contact-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem;margin-top:1.7rem}
+
+    footer{padding:34px 0 78px;background:var(--navy-dark);color:#fff}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:2rem}
+    .footer-logo{height:32px;width:auto}
+    .footer-copy{margin:.6rem 0 0;color:rgba(255,255,255,.5);font-size:.8rem}
+    .footer-meta{text-align:right;color:rgba(255,255,255,.52);font-size:.78rem}
+
+    .wa-float{position:fixed;z-index:40;right:18px;bottom:20px;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.2)}
+    .mobile-wa{display:none}
+
+    @media (max-width:900px){
+      .desktop-nav{display:none}.menu-btn{display:block}.mobile-nav.open{display:block}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .sim-shell,.method-grid,.about-grid{grid-template-columns:1fr}.sim-shell,.method-grid{gap:34px}.scope-grid{grid-template-columns:repeat(2,1fr)}
+      .portfolio-grid{grid-template-columns:1fr}.project.large{min-height:420px}.portfolio-side{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .container{width:min(100% - 28px,1180px)}
+      .hero{min-height:82vh;padding:102px 0 74px;background-position:62% center}.hero-actions{display:grid}.hero-actions .btn{width:100%}
+      .trust-wrap{margin-top:-22px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line)!important}.trust-item:last-child{border-bottom:0!important}
+      .sim-teaser,.method,.scope,.portfolio,.about,.faq{padding:72px 0}
+      .benefits{grid-template-columns:1fr}.sim-card{padding:24px}.sim-proof{grid-template-columns:1fr}.method-cards,.scope-grid{grid-template-columns:1fr}
+      .section-head{align-items:start;flex-direction:column}.portfolio-side{grid-template-columns:1fr}.project.large{min-height:360px}.project{min-height:260px}
+      .about-grid{gap:32px}.about-actions{display:grid}.about-actions .btn{width:100%}
+      .contact-actions{display:grid}.contact-actions .btn{width:100%}
+      .footer-inner{align-items:flex-start;flex-direction:column}.footer-meta{text-align:left}
+      .wa-float{display:none}.mobile-wa{display:block;position:fixed;z-index:45;inset:auto 0 0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+      .mobile-wa a{display:flex;justify-content:center;align-items:center;min-height:46px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800;font-size:.86rem}
+      footer{padding-bottom:92px}
+    }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"WERTHAUS Engenharia","url":"https://werthaus.eng.br/","logo":"https://werthaus.eng.br/assets/logo-werthaus-branco.png","telephone":"+55 32 99947-5023","areaServed":"Juiz de Fora, MG","address":{"@type":"PostalAddress","addressLocality":"Juiz de Fora","addressRegion":"MG","addressCountry":"BR"},"sameAs":["https://instagram.com/wert.haus"]}</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"WERTHAUS Engenharia",
+    "url":"https://werthaus.eng.br/",
+    "logo":"https://werthaus.eng.br/assets/logo-werthaus-branco.png",
+    "telephone":"+55 32 99947-5023",
+    "areaServed":"Juiz de Fora, MG",
+    "address":{"@type":"PostalAddress","addressLocality":"Juiz de Fora","addressRegion":"MG","addressCountry":"BR"},
+    "sameAs":["https://instagram.com/wert.haus"]
+  }
+  </script>
 </head>
 <body>
-<header><div class="container header-inner"><a href="#top" aria-label="WERTHAUS Engenharia - início"><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="logo" /></a><nav class="desktop-nav" aria-label="Navegação principal"><a href="simulador.html">Simulador</a><a href="#metodo">Como trabalhamos</a><a href="#escopo">O que gerenciamos</a><a href="#portfolio">Obras</a><a href="#sobre">WERTHAUS</a><a href="#contato" class="header-cta">Fale com um engenheiro</a></nav><button id="menuBtn" class="menu-btn" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M3.75 5.5h16.5V7H3.75V5.5Zm0 5.25h16.5v1.5H3.75v-1.5Zm0 5.25h16.5v1.5H3.75V16Z"/></svg></button></div><nav id="mobileNav" class="mobile-nav" aria-label="Navegação móvel"><a href="simulador.html">Simulador</a><a href="#metodo">Como trabalhamos</a><a href="#escopo">O que gerenciamos</a><a href="#portfolio">Obras</a><a href="#sobre">WERTHAUS</a><a href="#contato"><strong>Fale com um engenheiro</strong></a></nav></header>
-<main>
-<section id="top" class="hero"><div class="container"><div class="hero-content"><p class="eyebrow">Engenharia • Gestão • Residências</p><h1>Gerenciamento de obras de alto padrão, do planejamento à entrega.</h1><p class="hero-copy">Planejamento, orçamento, contratações, compras, controle de custos e qualidade técnica para transformar um projeto complexo em uma obra bem conduzida.</p><p class="hero-tagline">Sua obra, nosso compromisso.</p><div class="hero-actions"><a href="simulador.html" class="btn btn-white">Simule o investimento da sua obra</a><a href="#metodo" class="btn btn-outline-white">Conheça nosso método</a></div><p class="hero-note">Estimativa completa, sem cadastro obrigatório.</p></div></div></section>
-<div class="trust-wrap"><div class="container trust-grid"><div class="trust-item"><strong>Planejamento</strong><p>Orçamento, cronograma e estratégia antes de comprometer recursos.</p></div><div class="trust-item"><strong>Compras técnicas</strong><p>Comparação de propostas com conferência de especificações e custo total.</p></div><div class="trust-item"><strong>Controle</strong><p>Acompanhamento das equipes, avanço físico e verificação dos serviços.</p></div><div class="trust-item"><strong>Transparência</strong><p>Registros e informações organizadas para decisões com contexto.</p></div></div></div>
-<section id="simulador" class="sim-teaser"><div class="container sim-shell"><div class="sim-copy"><p class="eyebrow">Ferramenta de planejamento</p><h2 class="section-title">Quanto custa construir a casa que você está planejando?</h2><p class="section-copy">Faça uma estimativa a partir das características da sua casa e de referências atuais de custos de construção em Juiz de Fora e região. Em cerca de um minuto, você entende a ordem de grandeza do investimento antes de avançar para um orçamento executivo.</p><div class="benefits"><div class="benefit"><span class="benefit-num">1</span><strong>Faixa de investimento</strong><p>Uma estimativa total e por m² para o cenário informado.</p></div><div class="benefit"><span class="benefit-num">2</span><strong>Custos por etapas</strong><p>Veja como o investimento tende a se distribuir ao longo da obra.</p></div><div class="benefit"><span class="benefit-num">3</span><strong>Prazo provável</strong><p>Uma referência de planejamento compatível com o porte da construção.</p></div></div></div><div class="sim-card"><small>Simulador WERTHAUS</small><h3>Tenha uma referência útil antes de tomar decisões caras.</h3><p>Você informa apenas área do terreno, área construída, padrão desejado, sistema construtivo — se já souber — e as condições de implantação.</p><div class="sim-proof"><div><strong>Sem cadastro</strong><span>Resultado liberado na hora</span></div><div><strong>Base regional</strong><span>Juiz de Fora e região</span></div><div><strong>Sem contato forçado</strong><span>Você decide se quer conversar</span></div></div><a href="simulador.html" class="btn btn-white">Simular minha obra →</a><p class="sim-privacy">Nenhum telefone ou e-mail é solicitado para ver a análise.</p></div></div></section>
-<section id="metodo" class="method"><div class="container method-grid"><div><p class="eyebrow">Como trabalhamos</p><h2 class="section-title">A obra deixa de ser uma sequência de improvisos e passa a ser um processo gerenciado.</h2><p class="section-copy">A WERTHAUS coordena as decisões técnicas, financeiras e operacionais para que cliente, projetistas, fornecedores e equipes trabalhem sobre o mesmo plano.</p></div><div class="method-cards"><article class="method-card"><span class="number">01</span><h3>Planejar antes de gastar</h3><p>Orçamento, cronograma, compatibilização das decisões e estratégia de contratação antes de comprometer recursos.</p></article><article class="method-card"><span class="number">02</span><h3>Comprar com critério</h3><p>Cotações comparáveis, conferência técnica das especificações e negociação orientada por custo total e desempenho.</p></article><article class="method-card"><span class="number">03</span><h3>Controlar a execução</h3><p>Coordenação das equipes, verificação dos serviços, acompanhamento do avanço físico e correções antes que problemas se acumulem.</p></article><article class="method-card"><span class="number">04</span><h3>Dar visibilidade ao cliente</h3><p>Registros, relatórios e comunicação organizada para que decisões sejam tomadas com informação e contexto.</p></article></div></div></section>
-<section id="escopo" class="scope"><div class="container"><p class="eyebrow">O que gerenciamos</p><h2 class="section-title">Uma obra é feita de centenas de decisões. Nosso trabalho é organizar o conjunto.</h2><p class="section-copy">A atuação se conecta às principais frentes técnicas, financeiras e operacionais da construção, com profundidade ajustada ao escopo contratado.</p><div class="scope-grid"><article class="scope-card"><span class="number">01</span><h3>Planejamento e orçamento</h3><p>Quantificação, orçamento, cronograma, estratégia de contratação e acompanhamento das premissas de custo.</p></article><article class="scope-card"><span class="number">02</span><h3>Contratações e compras</h3><p>Solicitação e equalização de propostas, conferência técnica, negociação e organização das aquisições.</p></article><article class="scope-card"><span class="number">03</span><h3>Coordenação das equipes</h3><p>Sequenciamento das frentes, alinhamento entre prestadores e acompanhamento da execução em campo.</p></article><article class="scope-card"><span class="number">04</span><h3>Controle de qualidade</h3><p>Verificação dos serviços, registros de controle e correção de desvios antes das etapas seguintes.</p></article><article class="scope-card"><span class="number">05</span><h3>Prazo e avanço físico</h3><p>Atualização do andamento, leitura dos desvios e priorização das ações necessárias para manter o fluxo da obra.</p></article><article class="scope-card"><span class="number">06</span><h3>Registros e entrega</h3><p>Organização das informações, registros fotográficos, documentação e consolidação dos dados relevantes da execução.</p></article></div></div></section>
-<section id="portfolio" class="portfolio"><div class="container"><div class="section-head"><div><p class="eyebrow">Obras</p><h2 class="section-title">Engenharia que pode ser vista na execução.</h2><p class="section-copy">Alguns registros de obras acompanhadas pela WERTHAUS.</p></div><a href="https://instagram.com/wert.haus" target="_blank" rel="noopener">Acompanhe as obras no Instagram →</a></div><div class="portfolio-grid"><figure class="project large"><img src="assets/portfolio-1.jpg" alt="Execução de obra residencial gerenciada pela WERTHAUS" loading="lazy" /><figcaption><strong>Obra residencial</strong><span>Planejamento, coordenação e controle da execução</span></figcaption></figure><div class="portfolio-side"><figure class="project"><img src="assets/portfolio-2.jpg" alt="Detalhe de obra residencial acompanhada pela WERTHAUS" loading="lazy" /><figcaption><strong>Execução e acabamento</strong></figcaption></figure><figure class="project"><img src="assets/portfolio-3.jpg" alt="Acompanhamento técnico de obra pela WERTHAUS Engenharia" loading="lazy" /><figcaption><strong>Acompanhamento técnico</strong></figcaption></figure></div></div></div></section>
-<section id="sobre" class="about"><div class="container about-grid"><div><p class="eyebrow">WERTHAUS Engenharia</p><h2 class="section-title">O cliente não precisa administrar sozinho centenas de decisões de uma construção.</h2><p class="section-copy">Nosso trabalho é estruturar e conduzir essas decisões com método: planejamento, orçamento, contratações, compras, acompanhamento técnico, controle de qualidade e informação clara ao longo da obra.</p><p class="section-copy">Atuamos principalmente em obras residenciais em Juiz de Fora e região, com atendimento próximo e gestão orientada ao melhor uso do investimento.</p><div class="about-actions"><a href="#contato" class="btn btn-primary">Converse sobre seu projeto</a><a href="simulador.html" class="btn btn-outline">Fazer uma simulação</a></div></div><div class="about-image"><img src="assets/sobre.jpg" alt="Acompanhamento de obra pela WERTHAUS Engenharia" loading="lazy" /></div></div></section>
-<section class="faq"><div class="container"><div class="faq-head"><p class="eyebrow">Dúvidas frequentes</p><h2 class="section-title">Antes de começar uma obra, estas perguntas importam.</h2></div><div class="faq-list"><details><summary>A estimativa do simulador é um orçamento?<span class="plus">+</span></summary><p>Não. É uma faixa inicial para ajudar a avaliar a ordem de grandeza do investimento. Um orçamento confiável depende de projetos, especificações, quantitativos, condições do terreno e estratégia de contratação.</p></details><details><summary>O que significa obra por administração?<span class="plus">+</span></summary><p>É uma modalidade em que os custos da obra são conhecidos e acompanhados pelo contratante, enquanto a empresa de engenharia é remunerada pela gestão. A estrutura exata depende do contrato e do escopo definido.</p></details><details><summary>A WERTHAUS executa ou apenas fiscaliza a obra?<span class="plus">+</span></summary><p>O escopo pode abranger o gerenciamento completo da execução: planejamento, coordenação das equipes e fornecedores, orçamento, compras, controle técnico e acompanhamento até a entrega.</p></details><details><summary>Posso procurar a WERTHAUS antes de o projeto estar pronto?<span class="plus">+</span></summary><p>Sim. Quanto mais cedo decisões de projeto, orçamento e execução forem conectadas, maior a capacidade de antecipar incompatibilidades, custos e escolhas que afetam a obra.</p></details><details><summary>A WERTHAUS atende fora de Juiz de Fora?<span class="plus">+</span></summary><p>O foco principal é Juiz de Fora e região. Projetos em outras localidades podem ser avaliados conforme escopo, logística e necessidade de acompanhamento presencial.</p></details></div></div></section>
-<section id="contato" class="contact"><div class="container"><p class="eyebrow">Próximo passo</p><h2>Tem um terreno, um projeto ou uma obra para tirar do papel?</h2><p>Converse diretamente com a WERTHAUS. Se preferir, faça primeiro a simulação e leve para a conversa uma referência inicial de investimento, etapas e prazo.</p><div class="contact-actions"><a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener" class="btn btn-white">Falar pelo WhatsApp</a><a href="mailto:contato@werthaus.eng.br" class="btn btn-outline-white">contato@werthaus.eng.br</a></div></div></section>
-</main>
-<footer><div class="container footer-inner"><div><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="footer-logo" /><p class="footer-copy">Sua obra, nosso compromisso.</p></div><div class="footer-meta"><p>Juiz de Fora • MG</p><p>© <span id="year"></span> WERTHAUS Engenharia. Todos os direitos reservados.</p></div></div></footer>
-<a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener" class="wa-float" aria-label="Falar com a WERTHAUS pelo WhatsApp"><svg viewBox="0 0 32 32" width="25" height="25" fill="currentColor" aria-hidden="true"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg></a><div class="mobile-wa"><a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener">Falar com a WERTHAUS</a></div>
-<script>document.getElementById('year').textContent=new Date().getFullYear();const menuBtn=document.getElementById('menuBtn');const mobileNav=document.getElementById('mobileNav');menuBtn.addEventListener('click',()=>{const open=mobileNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});mobileNav.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{mobileNav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));</script>
+  <header>
+    <div class="container header-inner">
+      <a href="#top" aria-label="WERTHAUS Engenharia - início"><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="logo" /></a>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="simulador.html">Simulador</a>
+        <a href="#metodo">Como trabalhamos</a>
+        <a href="#escopo">O que gerenciamos</a>
+        <a href="#portfolio">Obras</a>
+        <a href="#sobre">WERTHAUS</a>
+        <a href="#contato" class="header-cta">Fale com um engenheiro</a>
+      </nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M3.75 5.5h16.5V7H3.75V5.5Zm0 5.25h16.5v1.5H3.75v-1.5Zm0 5.25h16.5v1.5H3.75V16Z"/></svg>
+      </button>
+    </div>
+    <nav id="mobileNav" class="mobile-nav" aria-label="Navegação móvel">
+      <a href="simulador.html">Simulador</a>
+      <a href="#metodo">Como trabalhamos</a>
+      <a href="#escopo">O que gerenciamos</a>
+      <a href="#portfolio">Obras</a>
+      <a href="#sobre">WERTHAUS</a>
+      <a href="#contato"><strong>Fale com um engenheiro</strong></a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="top" class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Engenharia • Gestão • Residências</p>
+          <h1>Gerenciamento de obras de alto padrão, do planejamento à entrega.</h1>
+          <p class="hero-copy">Planejamento, orçamento, contratações, compras, controle de custos e qualidade técnica para transformar um projeto complexo em uma obra bem conduzida.</p>
+          <p class="hero-tagline">Sua obra, nosso compromisso.</p>
+          <div class="hero-actions">
+            <a href="simulador.html" class="btn btn-white">Simule o investimento da sua obra</a>
+            <a href="#metodo" class="btn btn-outline-white">Conheça nosso método</a>
+          </div>
+          <p class="hero-note">Estimativa completa, sem cadastro obrigatório.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-wrap">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Planejamento</strong><p>Orçamento, cronograma e estratégia antes de comprometer recursos.</p></div>
+        <div class="trust-item"><strong>Compras técnicas</strong><p>Comparação de propostas com conferência de especificações e custo total.</p></div>
+        <div class="trust-item"><strong>Controle</strong><p>Acompanhamento das equipes, avanço físico e verificação dos serviços.</p></div>
+        <div class="trust-item"><strong>Transparência</strong><p>Registros e informações organizadas para decisões com contexto.</p></div>
+      </div>
+    </div>
+
+    <section id="simulador" class="sim-teaser">
+      <div class="container sim-shell">
+        <div class="sim-copy">
+          <p class="eyebrow">Ferramenta de planejamento</p>
+          <h2 class="section-title">Quanto custa construir a casa que você está planejando?</h2>
+          <p class="section-copy">Faça uma estimativa a partir das características da sua casa e de referências atuais de custos de construção em Juiz de Fora e região. Em cerca de um minuto, você entende a ordem de grandeza do investimento antes de avançar para um orçamento executivo.</p>
+          <div class="benefits">
+            <div class="benefit"><span class="benefit-num">1</span><strong>Faixa de investimento</strong><p>Uma estimativa total e por m² para o cenário informado.</p></div>
+            <div class="benefit"><span class="benefit-num">2</span><strong>Custos por etapas</strong><p>Veja como o investimento tende a se distribuir ao longo da obra.</p></div>
+            <div class="benefit"><span class="benefit-num">3</span><strong>Prazo provável</strong><p>Uma referência de planejamento compatível com o porte da construção.</p></div>
+          </div>
+        </div>
+        <div class="sim-card">
+          <small>Simulador WERTHAUS</small>
+          <h3>Tenha uma referência útil antes de tomar decisões caras.</h3>
+          <p>Você informa apenas área do terreno, área construída, padrão desejado, sistema construtivo — se já souber — e as condições de implantação.</p>
+          <div class="sim-proof">
+            <div><strong>Sem cadastro</strong><span>Resultado liberado na hora</span></div>
+            <div><strong>Base regional</strong><span>Juiz de Fora e região</span></div>
+            <div><strong>Sem contato forçado</strong><span>Você decide se quer conversar</span></div>
+          </div>
+          <a href="simulador.html" class="btn btn-white">Simular minha obra →</a>
+          <p class="sim-privacy">Nenhum telefone ou e-mail é solicitado para ver a análise.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo" class="method">
+      <div class="container method-grid">
+        <div>
+          <p class="eyebrow">Como trabalhamos</p>
+          <h2 class="section-title">A obra deixa de ser uma sequência de improvisos e passa a ser um processo gerenciado.</h2>
+          <p class="section-copy">A WERTHAUS coordena as decisões técnicas, financeiras e operacionais para que cliente, projetistas, fornecedores e equipes trabalhem sobre o mesmo plano.</p>
+        </div>
+        <div class="method-cards">
+          <article class="method-card"><span class="number">01</span><h3>Planejar antes de gastar</h3><p>Orçamento, cronograma, compatibilização das decisões e estratégia de contratação antes de comprometer recursos.</p></article>
+          <article class="method-card"><span class="number">02</span><h3>Comprar com critério</h3><p>Cotações comparáveis, conferência técnica das especificações e negociação orientada por custo total e desempenho.</p></article>
+          <article class="method-card"><span class="number">03</span><h3>Controlar a execução</h3><p>Coordenação das equipes, verificação dos serviços, acompanhamento do avanço físico e correções antes que problemas se acumulem.</p></article>
+          <article class="method-card"><span class="number">04</span><h3>Dar visibilidade ao cliente</h3><p>Registros, relatórios e comunicação organizada para que decisões sejam tomadas com informação e contexto.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="escopo" class="scope">
+      <div class="container">
+        <p class="eyebrow">O que gerenciamos</p>
+        <h2 class="section-title">Uma obra é feita de centenas de decisões. Nosso trabalho é organizar o conjunto.</h2>
+        <p class="section-copy">A atuação se conecta às principais frentes técnicas, financeiras e operacionais da construção, com profundidade ajustada ao escopo contratado.</p>
+        <div class="scope-grid">
+          <article class="scope-card"><span class="number">01</span><h3>Planejamento e orçamento</h3><p>Quantificação, orçamento, cronograma, estratégia de contratação e acompanhamento das premissas de custo.</p></article>
+          <article class="scope-card"><span class="number">02</span><h3>Contratações e compras</h3><p>Solicitação e equalização de propostas, conferência técnica, negociação e organização das aquisições.</p></article>
+          <article class="scope-card"><span class="number">03</span><h3>Coordenação das equipes</h3><p>Sequenciamento das frentes, alinhamento entre prestadores e acompanhamento da execução em campo.</p></article>
+          <article class="scope-card"><span class="number">04</span><h3>Controle de qualidade</h3><p>Verificação dos serviços, registros de controle e correção de desvios antes das etapas seguintes.</p></article>
+          <article class="scope-card"><span class="number">05</span><h3>Prazo e avanço físico</h3><p>Atualização do andamento, leitura dos desvios e priorização das ações necessárias para manter o fluxo da obra.</p></article>
+          <article class="scope-card"><span class="number">06</span><h3>Registros e entrega</h3><p>Organização das informações, registros fotográficos, documentação e consolidação dos dados relevantes da execução.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <div><p class="eyebrow">Obras</p><h2 class="section-title">Engenharia que pode ser vista na execução.</h2><p class="section-copy">Alguns registros de obras acompanhadas pela WERTHAUS.</p></div>
+          <a href="https://instagram.com/wert.haus" target="_blank" rel="noopener">Acompanhe as obras no Instagram →</a>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="project large"><img src="assets/portfolio-1.jpg" alt="Execução de obra residencial gerenciada pela WERTHAUS" loading="lazy" /><figcaption><strong>Obra residencial</strong><span>Planejamento, coordenação e controle da execução</span></figcaption></figure>
+          <div class="portfolio-side">
+            <figure class="project"><img src="assets/portfolio-2.jpg" alt="Detalhe de obra residencial acompanhada pela WERTHAUS" loading="lazy" /><figcaption><strong>Execução e acabamento</strong></figcaption></figure>
+            <figure class="project"><img src="assets/portfolio-3.jpg" alt="Acompanhamento técnico de obra pela WERTHAUS Engenharia" loading="lazy" /><figcaption><strong>Acompanhamento técnico</strong></figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="about">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">WERTHAUS Engenharia</p>
+          <h2 class="section-title">O cliente não precisa administrar sozinho centenas de decisões de uma construção.</h2>
+          <p class="section-copy">Nosso trabalho é estruturar e conduzir essas decisões com método: planejamento, orçamento, contratações, compras, acompanhamento técnico, controle de qualidade e informação clara ao longo da obra.</p>
+          <p class="section-copy">Atuamos principalmente em obras residenciais em Juiz de Fora e região, com atendimento próximo e gestão orientada ao melhor uso do investimento.</p>
+          <div class="credential-card"><span>Engenheiro à frente da WERTHAUS</span><strong>João Paulo Lopes Werneck</strong><p>Engenheiro Civil • Registro CREA 2018013262 • Visto CREA-MG 283898</p></div>
+          <div class="about-actions"><a href="#contato" class="btn btn-primary">Converse sobre seu projeto</a><a href="simulador.html" class="btn btn-outline">Fazer uma simulação</a></div>
+        </div>
+        <div class="about-image"><img src="assets/sobre.jpg" alt="Acompanhamento de obra pela WERTHAUS Engenharia" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="container">
+        <div class="faq-head"><p class="eyebrow">Dúvidas frequentes</p><h2 class="section-title">Antes de começar uma obra, estas perguntas importam.</h2></div>
+        <div class="faq-list">
+          <details><summary>A estimativa do simulador é um orçamento?<span class="plus">+</span></summary><p>Não. É uma faixa inicial para ajudar a avaliar a ordem de grandeza do investimento. Um orçamento confiável depende de projetos, especificações, quantitativos, condições do terreno e estratégia de contratação.</p></details>
+          <details><summary>O que significa obra por administração?<span class="plus">+</span></summary><p>É uma modalidade em que os custos da obra são conhecidos e acompanhados pelo contratante, enquanto a empresa de engenharia é remunerada pela gestão. A estrutura exata depende do contrato e do escopo definido.</p></details>
+          <details><summary>A WERTHAUS executa ou apenas fiscaliza a obra?<span class="plus">+</span></summary><p>O escopo pode abranger o gerenciamento completo da execução: planejamento, coordenação das equipes e fornecedores, orçamento, compras, controle técnico e acompanhamento até a entrega.</p></details>
+          <details><summary>Posso procurar a WERTHAUS antes de o projeto estar pronto?<span class="plus">+</span></summary><p>Sim. Quanto mais cedo decisões de projeto, orçamento e execução forem conectadas, maior a capacidade de antecipar incompatibilidades, custos e escolhas que afetam a obra.</p></details>
+          <details><summary>A WERTHAUS atende fora de Juiz de Fora?<span class="plus">+</span></summary><p>O foco principal é Juiz de Fora e região. Projetos em outras localidades podem ser avaliados conforme escopo, logística e necessidade de acompanhamento presencial.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact">
+      <div class="container">
+        <p class="eyebrow">Próximo passo</p>
+        <h2>Tem um terreno, um projeto ou uma obra para tirar do papel?</h2>
+        <p>Converse diretamente com a WERTHAUS. Se preferir, faça primeiro a simulação e leve para a conversa uma referência inicial de investimento, etapas e prazo.</p>
+        <div class="contact-actions"><a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener" class="btn btn-white">Falar pelo WhatsApp</a><a href="mailto:contato@werthaus.eng.br" class="btn btn-outline-white">contato@werthaus.eng.br</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="footer-logo" /><p class="footer-copy">Sua obra, nosso compromisso.</p></div>
+      <div class="footer-meta"><p>Juiz de Fora • MG</p><p>© <span id="year"></span> WERTHAUS Engenharia. Todos os direitos reservados.</p></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener" class="wa-float" aria-label="Falar com a WERTHAUS pelo WhatsApp">
+    <svg viewBox="0 0 32 32" width="25" height="25" fill="currentColor" aria-hidden="true"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
+  </a>
+  <div class="mobile-wa"><a href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener">Falar com a WERTHAUS</a></div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    mobileNav.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
 </body>
 </html>
