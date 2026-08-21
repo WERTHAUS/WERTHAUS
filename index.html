@@ -2,345 +2,57 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WERTHAUS Engenharia — Sua obra, nosso compromisso</title>
-  <meta name="description" content="Gerenciamento de obras residenciais de alto padrão, com qualidade, sofisticação e eficiência orçamentária.">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Obras de Alto Padrão Residenciais e Comerciais em Juiz de Fora | WERTHAUS</title>
+  <meta name="description" content="Especialistas em obras de alto padrão residenciais e comerciais em Juiz de Fora e região. Gerenciamento, planejamento, orçamento, compras, coordenação e controle técnico." />
+  <meta name="theme-color" content="#0d326a" />
+  <link rel="canonical" href="https://werthaus.eng.br/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WERTHAUS Engenharia | Obras de alto padrão" />
+  <meta property="og:description" content="Engenharia e gestão para obras residenciais e comerciais de alto padrão em Juiz de Fora e região." />
+  <meta property="og:url" content="https://werthaus.eng.br/" />
+  <meta property="og:image" content="https://werthaus.eng.br/assets/hero-obra.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tailwind custom config (inline)
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            werthaus: {
-              navy: '#0E3B6F', // azul marinho
-              navyDark: '#0d326a',
-              gray: '#F4F6F8',
-              accent: '#203A73'
-            }
-          },
-          fontFamily: {
-            sans: ['Montserrat', 'ui-sans-serif', 'system-ui']
-          },
-          boxShadow: {
-            soft: '0 10px 25px rgba(0,0,0,.08)'
-          }
-        }
-      }
-    }
-  </script>
   <style>
-    /* Suaviza a rolagem */
-    html { scroll-behavior: smooth; }
-    /* Evita distorção da logo em qualquer tamanho */
-    .logo-img { height: 48px; width: auto; object-fit: contain; }
-    @media (min-width: 1024px) { .logo-img { height: 56px; } }
+    :root{--navy:#0d326a;--ink:#182333;--muted:#657182;--line:#e0e6ed;--soft:#f4f6f8;--white:#fff;--shadow:0 18px 45px rgba(13,50,106,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Montserrat,system-ui,sans-serif;color:var(--ink);line-height:1.55;background:#fff;overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;width:100%}.container{width:min(1160px,calc(100% - 36px));margin:auto}.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:rgba(13,50,106,.62)}h1,h2,h3,p{margin-top:0}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.8rem 1.15rem;border-radius:12px;font-weight:800;border:1px solid transparent;transition:transform .2s ease}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--navy);color:#fff}.btn-white{background:#fff;color:var(--navy)}.btn-outline{border-color:#ccd5df;background:#fff}.section{padding:82px 0}.title{font-size:clamp(2rem,4vw,3rem);line-height:1.08;letter-spacing:-.035em;color:var(--navy);margin:.7rem 0 0}.copy{color:var(--muted);line-height:1.8;margin:1.1rem 0 0}
+    header{position:fixed;inset:0 0 auto;z-index:40;background:rgba(13,50,106,.96);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1)}.header{height:66px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.logo{width:auto;height:43px}.nav{display:flex;gap:1.45rem;align-items:center;color:rgba(255,255,255,.88);font-size:.84rem}.nav-cta{background:#fff;color:var(--navy);padding:.62rem .85rem;border-radius:10px;font-weight:800}.sim-link{font-weight:700}
+    .hero{min-height:88vh;display:flex;align-items:center;color:#fff;padding:110px 0 74px;background:linear-gradient(90deg,rgba(13,50,106,.98),rgba(13,50,106,.82) 52%,rgba(13,50,106,.32)),url('assets/hero-obra.jpg') center/cover}.hero-content{max-width:800px}.hero .eyebrow{color:rgba(255,255,255,.62)}.hero h1{font-size:clamp(2.7rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.045em;margin:1rem 0 0}.hero p{max-width:720px;color:rgba(255,255,255,.82);font-size:clamp(1rem,2vw,1.18rem);line-height:1.75;margin:1.35rem 0 0}.hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.8rem}
+    .works-head{display:flex;justify-content:space-between;gap:2rem;align-items:end}.works-head>div{max-width:780px}.works-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:16px;margin-top:34px}.work{position:relative;min-height:390px;border-radius:22px;overflow:hidden;background:#e9edf2}.work.small{min-height:300px}.work img{position:absolute;inset:0;height:100%;object-fit:cover;transition:transform .6s ease}.work:hover img{transform:scale(1.02)}.work:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.78))}.work figcaption{position:absolute;z-index:2;inset:auto 0 0;padding:22px;color:#fff}.tag{display:inline-block;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:rgba(255,255,255,.68)}.work strong{display:block;margin-top:.35rem;font-size:1.05rem}.work span:last-child{display:block;margin-top:.25rem;font-size:.78rem;color:rgba(255,255,255,.65)}.more-link{font-weight:800;color:var(--navy);font-size:.84rem;white-space:nowrap}
+    .sim-band{background:var(--navy);color:#fff}.sim-inner{display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}.sim-band .eyebrow{color:rgba(255,255,255,.5)}.sim-band h2{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08;margin:.6rem 0 0}.sim-band p{color:rgba(255,255,255,.7);max-width:760px;line-height:1.75;margin:1rem 0 0}.sim-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:1.1rem;color:rgba(255,255,255,.56);font-size:.78rem}
+    .activity{background:var(--soft)}.activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}.activity-card{padding:30px;border-radius:22px;background:#fff;border:1px solid var(--line)}.activity-card .label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:rgba(13,50,106,.55)}.activity-card h3{font-size:1.45rem;margin:.7rem 0 0}.activity-card p{margin:.8rem 0 0;color:var(--muted);line-height:1.75;font-size:.9rem}.activity-card ul{padding-left:1.15rem;margin:1rem 0 0}.activity-card li{margin:.35rem 0;font-size:.84rem;color:var(--muted)}
+    .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:34px}.process-card{background:#fff;padding:28px}.num{color:rgba(13,50,106,.42);font-size:.75rem;font-weight:800}.process-card h3{font-size:1.25rem;margin:1rem 0 0}.process-card p{font-size:.86rem;color:var(--muted);line-height:1.7;margin:.65rem 0 0}.scope-details{margin-top:18px;border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:#fafbfc}.scope-details summary{cursor:pointer;font-weight:800;color:var(--navy)}.scope-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 22px;margin-top:16px;color:var(--muted);font-size:.84rem}
+    .about{background:#0a1220;color:#fff}.about-grid{display:grid;grid-template-columns:1fr .85fr;gap:56px;align-items:center}.about .eyebrow{color:rgba(255,255,255,.42)}.about .title{color:#fff}.about .copy{color:rgba(255,255,255,.64)}.credential{margin-top:1.5rem;padding:18px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.05)}.credential small{display:block;color:rgba(255,255,255,.42);text-transform:uppercase;letter-spacing:.11em;font-weight:800}.credential strong{display:block;margin-top:.45rem}.credential span{display:block;margin-top:.25rem;color:rgba(255,255,255,.56);font-size:.8rem}.about-img{border-radius:22px;overflow:hidden;min-height:400px}.about-img img{height:100%;object-fit:cover}
+    .faq-list{max-width:900px;margin:32px auto 0;border-top:1px solid var(--line)}details.faq{border-bottom:1px solid var(--line);padding:18px 0}details.faq summary{cursor:pointer;font-weight:800}details.faq p{color:var(--muted);font-size:.87rem;line-height:1.75;margin:.8rem 0 0}.cta{text-align:center;background:var(--soft)}.cta .copy{max-width:680px;margin-inline:auto}.cta-actions{display:flex;gap:.75rem;justify-content:center;margin-top:1.6rem;flex-wrap:wrap}footer{background:var(--navy);color:#fff;padding:28px 0}.footer{display:flex;justify-content:space-between;align-items:center;color:rgba(255,255,255,.55);font-size:.76rem}.footer img{width:auto;height:30px}
+    @media(max-width:860px){.nav a:not(.nav-cta):not(.sim-link){display:none}.works-grid{grid-template-columns:1fr 1fr}.work:first-child{grid-column:1/-1}.sim-inner,.about-grid{grid-template-columns:1fr}.activity-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.scope-list{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.container{width:min(100% - 28px,1160px)}.nav{gap:.7rem}.nav-cta{font-size:.74rem;padding:.58rem .7rem}.sim-link{font-size:.76rem}.hero{min-height:78vh;background-position:64% center}.hero-actions{display:grid}.hero-actions .btn{width:100%}.works-head{align-items:start;flex-direction:column}.works-grid{grid-template-columns:1fr}.work:first-child{grid-column:auto}.work,.work.small{min-height:310px}.sim-inner .btn{width:100%}.scope-list{grid-template-columns:1fr}.section{padding:66px 0}.footer{flex-direction:column;align-items:flex-start;gap:14px}}
   </style>
-</head>
-<body class="font-sans text-slate-800 antialiased">
-  <!-- Barra superior fixa -->
-  <header id="siteHeader" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-werthaus-navy backdrop-blur supports-[backdrop-filter]:bg-werthaus-navy/70">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <a href="#top" class="inline-flex items-center gap-3">
-          <!-- Use sua logo SVG/PNG em alta; esta é uma área segura para qualquer proporção -->
-          <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia" class="logo-img" />
-        </a>
-        <nav class="hidden md:flex items-center gap-8 text-white/90">
-          <a href="#sobre" class="hover:text-white transition">Sobre</a>
-          <a href="#servicos" class="hover:text-white transition">Serviços</a>
-          <a href="#portfolio" class="hover:text-white transition">Portfólio</a>
-          <a href="artigos.html" class="hover:text-white transition">Artigos</a>
-          <a href="#contato" class="inline-flex items-center rounded-xl bg-white px-4 py-2 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition">Solicite um orçamento</a>
-        </nav>
-        <!-- Botão mobile -->
-        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl p-2 text-white hover:bg-white/10" aria-label="Abrir menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M3.75 5.5h16.5v1.5H3.75V5.5Zm0 5.25h16.5v1.5H3.75v-1.5Zm0 5.25h16.5v1.5H3.75V16Z"/></svg>
-        </button>
-      </div>
-    </div>
-    <!-- Menu mobile -->
-    <div id="mobileNav" class="md:hidden max-h-0 overflow-hidden transition-all duration-300 bg-werthaus-navy/95">
-      <div class="px-6 pb-6 pt-2 space-y-3 text-white/90">
-        <a href="#sobre" class="block" onclick="closeMenu()">Sobre</a>
-        <a href="#servicos" class="block" onclick="closeMenu()">Serviços</a>
-        <a href="#portfolio" class="block" onclick="closeMenu()">Portfólio</a>
-        <a href="artigos.html" class="block" onclick="closeMenu()">Artigos</a>
-        <a href="#contato" class="block font-semibold text-white" onclick="closeMenu()">Solicite um orçamento</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section id="top" class="relative min-h-screen flex items-center justify-center">
-    <!-- Imagem de fundo: substitua o caminho abaixo pela sua foto em alta -->
-    <div class="absolute inset-0 -z-10 bg-center bg-cover" style="background-image:url('assets/hero-obra.jpg');"></div>
-    <!-- Overlay mais suave para legibilidade -->
-    <div class="absolute inset-0 -z-10 bg-werthaus-navy/60"></div>
-
-    <div class="relative z-10 mx-auto w-full max-w-4xl px-6 text-center text-white">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">Sua obra, nosso compromisso.</h1>
-      <p class="mt-4 text-lg sm:text-xl text-white/90">Eficiência, sustentabilidade e excelência em construções de alto padrão.</p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 pb-24">
-        <a href="#contato" class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition">Solicite um orçamento</a>
-        <a href="#servicos" class="inline-flex items-center justify-center rounded-xl border border-white/30 px-6 py-3 text-white hover:bg-white/10 transition">Conheça nossos serviços</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre -->
-  <section id="sobre" class="py-20 bg-white">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold text-werthaus-navy">Sobre a WERTHAUS</h2>
-          <p class="mt-6 text-lg leading-relaxed text-slate-700">Somos especialistas em <strong>gerenciamento de obras residenciais de alto padrão</strong>, priorizando qualidade, sofisticação e eficiência orçamentária. Atuamos com transparência e método, garantindo previsibilidade de prazos, custos e acabamentos.</p>
-          <ul class="mt-6 space-y-3 text-slate-700">
-            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Foco em obras residenciais e comerciais de alto padrão.</li>
-            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Processo claro: planejamento, orçamento e controle de qualidade.</li>
-            <li class="flex items-start gap-3"><span class="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-werthaus-navy/10"><svg class="h-4 w-4 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span> Atendimento próximo e personalizado.</li>
-          </ul>
-        </div>
-        <div class="relative">
-          <div class="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-soft">
-            <img src="assets/sobre.jpg" alt="Equipe WERTHAUS em obra" class="h-full w-full object-cover" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section id="servicos" class="py-20 bg-werthaus-gray">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="text-3xl font-extrabold text-werthaus-navy text-center">Serviços</h2>
-      <p class="mt-4 text-center text-slate-600 max-w-2xl mx-auto">Do planejamento ao controle final, gerimos cada etapa para garantir excelência de execução e melhor uso do investimento.</p>
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <!-- Card -->
-        <div class="rounded-2xl bg-white p-6 shadow-soft">
-          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5h18v2H3V5zm2 4h14v10H5V9zm2 2v6h10v-6H7z"/></svg>
-          </div>
-          <h3 class="font-semibold text-lg">Gerenciamento completo</h3>
-          <p class="mt-2 text-slate-600">Coordenação de equipes, fornecedores e cronograma.</p>
-        </div>
-        <div class="rounded-2xl bg-white p-6 shadow-soft">
-          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14l4-4h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/></svg>
-          </div>
-          <h3 class="font-semibold text-lg">Planejamento & orçamento</h3>
-          <p class="mt-2 text-slate-600">Previsão de custos realista e gestão do orçamento.</p>
-        </div>
-        <div class="rounded-2xl bg-white p-6 shadow-soft">
-          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7V3L1 9l11 6 9-4.91V17h2V9L12 3v4z"/></svg>
-          </div>
-          <h3 class="font-semibold text-lg">Controle de qualidade</h3>
-          <p class="mt-2 text-slate-600">Padrões técnicos e acabamento de alto nível.</p>
-        </div>
-        <div class="rounded-2xl bg-white p-6 shadow-soft">
-          <div class="h-10 w-10 rounded-xl bg-werthaus-navy/10 flex items-center justify-center mb-4">
-            <svg class="h-6 w-6 text-werthaus-navy" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h14v2H5V4zm0 4h14v2H5V8zm0 4h10v2H5v-2zm0 4h10v2H5v-2z"/></svg>
-          </div>
-          <h3 class="font-semibold text-lg">Relatórios & transparência</h3>
-          <p class="mt-2 text-slate-600">Acompanhamento com indicadores e registros fotográficos.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfólio (teaser) -->
-  <section id="portfolio" class="py-20 bg-white">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="text-3xl font-extrabold text-werthaus-navy">Portfólio</h2>
-        <a href="https://instagram.com/wert.haus" target="_blank" class="text-sm text-werthaus-navy/80 hover:text-werthaus-navy underline">Ver mais no Instagram</a>
-      </div>
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
-          <img src="assets/portfolio-1.jpg" alt="Obra 1" class="h-full w-full object-cover group-hover:scale-105 transition" />
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
-          <img src="assets/portfolio-2.jpg" alt="Obra 2" class="h-full w-full object-cover group-hover:scale-105 transition" />
-        </figure>
-        <figure class="group overflow-hidden rounded-2xl shadow-soft aspect-[4/3] bg-slate-200">
-          <img src="assets/portfolio-3.jpg" alt="Obra 3" class="h-full w-full object-cover group-hover:scale-105 transition" />
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Artigos -->
-  <section id="artigos" class="py-20 bg-werthaus-gray">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="flex items-end justify-between gap-4">
-        <h2 class="text-3xl font-extrabold text-werthaus-navy">Artigos</h2>
-        <a href="artigos.html" target="_blank" class="text-sm text-werthaus-navy/80 hover:text-werthaus-navy underline">Ver todos</a>
-      </div>
-      <div class="mt-8 grid gap-6 md:grid-cols-3">
-        <article class="rounded-2xl bg-white p-6 shadow-soft">
-          <h3 class="font-semibold text-lg">Como funciona a obra por administração</h3>
-          <p class="mt-2 text-slate-600">Modelo transparente: custo real + taxa de gestão. Vantagens, riscos e como comparar com preço fechado.</p>
-	<a href="artigos/exemplo.html" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
-        </article>
-        <article class="rounded-2xl bg-white p-6 shadow-soft">
-          <h3 class="font-semibold text-lg">Checklist de início de obra</h3>
-          <p class="mt-2 text-slate-600">Documentação, cronograma, contratação e controle — por onde começar sem erros.</p>
-          <a href="artigos.html" target="_blank" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
-        </article>
-        <article class="rounded-2xl bg-white p-6 shadow-soft">
-          <h3 class="font-semibold text-lg">Qualidade de acabamento: o que garantir</h3>
-          <p class="mt-2 text-slate-600">Normas, critérios objetivos e inspeções para alto padrão consistente.</p>
-          <a href="artigos.html" target="_blank" class="mt-4 inline-block text-werthaus-navy font-medium underline">Ler artigo</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Depoimentos (placeholder) -->
-  <section class="py-20 bg-white">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="text-3xl font-extrabold text-werthaus-navy text-center">O que dizem nossos clientes</h2>
-      <div class="mt-10 grid gap-6 md:grid-cols-3">
-        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
-          <p class="text-slate-700">“Transparência e organização acima do padrão. A obra fluiu sem sustos.”</p>
-          <footer class="mt-4 text-sm text-slate-500">— Cliente residencial, 2024</footer>
-        </blockquote>
-        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
-          <p class="text-slate-700">“Excelente controle de custos, entregando mais do que foi prometido.”</p>
-          <footer class="mt-4 text-sm text-slate-500">— Cliente comercial, 2025</footer>
-        </blockquote>
-        <blockquote class="rounded-2xl bg-werthaus-gray p-6 shadow-soft">
-          <p class="text-slate-700">“Equipe técnica muito atenta aos detalhes de acabamento.”</p>
-          <footer class="mt-4 text-sm text-slate-500">— Arquiteta parceira</footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato" class="py-20 bg-werthaus-navy text-white">
-    <div class="mx-auto max-w-6xl px-6">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold">Vamos conversar sobre sua obra?</h2>
-          <p class="mt-4 text-white/90">Conte um pouco sobre seu projeto e retornaremos rapidamente com orientações e próximos passos.</p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="https://wa.me/5532999475023" target="_blank" class="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-werthaus-navy font-semibold shadow-soft hover:shadow-md transition" aria-label="Abrir WhatsApp">
-              <svg viewBox="0 0 32 32" class="h-5 w-5" fill="currentColor"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
-              WhatsApp
-            </a>
-            <a href="mailto:werthaus.engenharia@outlook.com" class="inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-3 text-white hover:bg-white/10 transition" aria-label="Enviar e-mail">werthaus.engenharia@outlook.com</a>
-          </div>
-        </div>
-        <form class="rounded-2xl bg-white p-6 text-slate-800 shadow-soft">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div class="sm:col-span-2">
-              <label class="text-sm font-medium text-slate-700">Nome</label>
-              <input type="text" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="Seu nome" />
-            </div>
-            <div>
-              <label class="text-sm font-medium text-slate-700">E-mail</label>
-              <input type="email" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="voce@email.com" />
-            </div>
-            <div>
-              <label class="text-sm font-medium text-slate-700">Telefone</label>
-              <input type="tel" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="(xx) xxxxx-xxxx" />
-            </div>
-            <div class="sm:col-span-2">
-              <label class="text-sm font-medium text-slate-700">Mensagem</label>
-              <textarea rows="4" class="mt-1 w-full rounded-xl border border-slate-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-werthaus-navy/40" placeholder="Conte sobre sua obra"></textarea>
-            </div>
-          </div>
-          <button type="button" class="mt-6 w-full rounded-xl bg-werthaus-navy px-6 py-3 font-semibold text-white shadow-soft hover:bg-werthaus-navyDark transition">Enviar</button>
-          <p class="mt-3 text-center text-xs text-slate-500">Ao enviar, você concorda com nossa política de privacidade.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Rodapé -->
-  <footer class="bg-werthaus-navy text-white">
-    <div class="mx-auto max-w-6xl px-6 py-10 grid gap-8 sm:grid-cols-3">
-      <div>
-        <img src="assets/logo-werthaus-branco.png" alt="WERTHAUS" class="h-8 w-auto object-contain" />
-        <p class="mt-4 text-white/80">Qualidade, sofisticação e eficiência na gestão da sua obra.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold">Contato</h4>
-        <ul class="mt-3 space-y-2 text-white/90">
-          <li><a href="mailto:werthaus.engenharia@outlook.com" class="hover:underline">werthaus.engenharia@outlook.com</a></li>
-          <li><a href="https://wa.me/5532999475023" target="_blank" class="hover:underline">WhatsApp</a></li>
-          <li>Juiz de Fora • MG</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-semibold">Navegação</h4>
-        <ul class="mt-3 space-y-2 text-white/90">
-          <li><a href="#sobre" class="hover:underline">Sobre</a></li>
-          <li><a href="#servicos" class="hover:underline">Serviços</a></li>
-          <li><a href="#portfolio" class="hover:underline">Portfólio</a></li>
-          <li><a href="artigos.html" class="hover:underline">Artigos</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="border-t border-white/10">
-      <div class="mx-auto max-w-6xl px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/70">
-        <p>© <span id="year"></span> WERTHAUS Engenharia. Todos os direitos reservados.</p>
-        <div class="flex items-center gap-3">
-          <a href="https://instagram.com/wert.haus" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="Instagram">
-            <!-- Instagram icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
-          </a>
-          <a href="https://wa.me/5532999475023" target="_blank" class="inline-flex items-center justify-center rounded-full bg-white/10 p-2 hover:bg-white/20" aria-label="WhatsApp">
-            <!-- WhatsApp icon -->
-            <svg viewBox="0 0 32 32" fill="currentColor" class="h-5 w-5"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Ícones flutuantes (fixos) -->
-  <div class="fixed right-4 bottom-6 z-40 flex flex-col gap-3">
-    <a href="https://wa.me/5532999475023" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir WhatsApp">
-      <!-- WhatsApp SVG -->
-      <svg viewBox="0 0 32 32" fill="currentColor" class="h-6 w-6"><path d="M19.11 17.23c-.27-.14-1.6-.79-1.85-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.6.07-.27-.14-1.13-.42-2.15-1.35-.79-.7-1.32-1.56-1.47-1.82-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2-.22-.53-.45-.45-.61-.45h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29 0 1.35.99 2.66 1.13 2.84.14.18 1.95 2.98 4.72 4.18.66.29 1.17.46 1.57.59.66.21 1.26.18 1.73.11.53-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/></svg>
-      <span class="pointer-events-none absolute right-14 hidden rounded-lg bg-black/80 px-3 py-1 text-xs text-white opacity-0 shadow-md transition group-hover:block group-hover:opacity-100">Fale conosco</span>
-    </a>
-    <a href="https://instagram.com/wert.haus" target="_blank" class="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 text-white shadow-soft hover:scale-105 active:scale-95 transition" aria-label="Abrir Instagram">
-      <!-- Instagram SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6"><path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2.2a2.8 2.8 0 110 5.6 2.8 2.8 0 010-5.6zM18 6.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
-      <span class="pointer-events-none absolute right-14 hidden rounded-lg bg-black/80 px-3 py-1 text-xs text-white opacity-0 shadow-md transition group-hover:block group-hover:opacity-100">Ver Instagram</span>
-    </a>
-  </div>
-
-  <script>
-    // Atualiza ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menu mobile toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    function closeMenu(){ mobileNav.style.maxHeight = '0px'; }
-    menuBtn?.addEventListener('click', () => {
-      const isOpen = mobileNav.style.maxHeight && mobileNav.style.maxHeight !== '0px';
-      mobileNav.style.maxHeight = isOpen ? '0px' : mobileNav.scrollHeight + 'px';
-    });
-
-    // Evita texto do hero ficar escondido atrás dos ícones no mobile (iOS safe area)
-    // Já adicionamos pb-24 no bloco de CTAs.
-
-    // Header: torna 100% opaco após rolar
-    const header = document.getElementById('siteHeader');
-    const onScroll = () => {
-      if (window.scrollY > 10) header.classList.add('bg-werthaus-navy');
-      else header.classList.remove('bg-werthaus-navy');
-    };
-    document.addEventListener('scroll', onScroll);
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"WERTHAUS Engenharia","url":"https://werthaus.eng.br/","logo":"https://werthaus.eng.br/assets/logo-werthaus-branco.png","telephone":"+55 32 99947-5023","areaServed":"Juiz de Fora, MG","address":{"@type":"PostalAddress","addressLocality":"Juiz de Fora","addressRegion":"MG","addressCountry":"BR"},"sameAs":["https://instagram.com/wert.haus"]}
   </script>
+</head>
+<body>
+<header><div class="container header"><a href="#top"><img class="logo" src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia"></a><nav class="nav" aria-label="Navegação principal"><a href="#obras">Obras</a><a href="#atuacao">Atuação</a><a href="#como">Como trabalhamos</a><a class="sim-link" href="simulador.html">Simulador</a><a href="#werthaus">WERTHAUS</a><a class="nav-cta" href="#contato">Falar com engenheiro</a></nav></div></header>
+<main>
+<section id="top" class="hero"><div class="container"><div class="hero-content"><div class="eyebrow">Engenharia e gestão de obras • Juiz de Fora e região</div><h1>Seu projeto merece uma obra tão bem conduzida quanto foi pensada.</h1><p>A WERTHAUS é especializada em obras residenciais e comerciais de alto padrão, conectando planejamento, orçamento, contratações, compras e execução em uma única coordenação.</p><div class="hero-actions"><a class="btn btn-white" href="simulador.html">Simular investimento da obra</a><a class="btn" style="border-color:rgba(255,255,255,.35);color:white" href="#obras">Ver obras realizadas</a></div></div></div></section>
+<section id="obras" class="section"><div class="container"><div class="works-head"><div><div class="eyebrow">Obras realizadas</div><h2 class="title">A melhor explicação do nosso trabalho está no que já foi executado.</h2><p class="copy">Alguns registros de obras acompanhadas pela WERTHAUS. A qualidade da gestão aparece no canteiro, nas decisões e na execução.</p></div><a href="https://instagram.com/wert.haus" target="_blank" rel="noopener" class="more-link">Ver mais no Instagram →</a></div><div class="works-grid"><figure class="work"><img src="assets/portfolio-1.jpg" alt="Obra acompanhada pela WERTHAUS" loading="lazy"><figcaption><span class="tag">Alto padrão</span><strong>Gerenciamento de obra</strong><span>Planejamento, coordenação e acompanhamento da execução</span></figcaption></figure><figure class="work small"><img src="assets/portfolio-2.jpg" alt="Execução e acabamento em obra" loading="lazy"><figcaption><span class="tag">Alto padrão</span><strong>Execução e acabamento</strong><span>Controle técnico das etapas finais</span></figcaption></figure><figure class="work small"><img src="assets/portfolio-3.jpg" alt="Acompanhamento técnico de obra" loading="lazy"><figcaption><span class="tag">Alto padrão</span><strong>Acompanhamento técnico</strong><span>Coordenação de equipes e serviços</span></figcaption></figure></div></div></section>
+<section class="section sim-band"><div class="container sim-inner"><div><div class="eyebrow">Simulador WERTHAUS</div><h2>Quer entender a ordem de grandeza do investimento antes de avançar?</h2><p>Em cerca de um minuto, o simulador estima faixa total, valor por m², distribuição por etapas e prazo provável usando referências de Juiz de Fora. Você recebe tudo sem cadastro.</p><div class="sim-meta"><span>Sem telefone</span><span>•</span><span>Sem e-mail</span><span>•</span><span>Resultado imediato</span></div></div><a class="btn btn-white" href="simulador.html">Simular minha obra →</a></div></section>
+<section id="atuacao" class="section activity"><div class="container"><div class="eyebrow">Atuação</div><h2 class="title">Especialistas em obras de alto padrão, residenciais e comerciais.</h2><p class="copy">Atuamos em projetos que exigem coordenação técnica próxima, controle de custos, organização das contratações e atenção rigorosa à execução — seja em uma residência personalizada ou em um espaço comercial.</p><div class="activity-grid"><article class="activity-card"><div class="label">Residencial</div><h3>Residências de alto padrão</h3><p>Casas personalizadas em que arquitetura, acabamento, fornecedores e decisões de projeto precisam ser coordenados com precisão ao longo de toda a execução.</p><ul><li>Gerenciamento completo da obra</li><li>Construção por administração</li><li>Planejamento, compras e controle técnico</li></ul></article><article class="activity-card"><div class="label">Comercial</div><h3>Obras comerciais de alto padrão</h3><p>Espaços comerciais em que prazo, qualidade de acabamento, compatibilização de fornecedores e organização da execução têm impacto direto na operação do cliente.</p><ul><li>Gerenciamento e coordenação</li><li>Execução conforme escopo</li><li>Planejamento e acompanhamento técnico</li></ul></article></div></div></section>
+<section id="como" class="section"><div class="container"><div class="eyebrow">Como trabalhamos</div><h2 class="title">Uma coordenação. Três responsabilidades.</h2><p class="copy">O cliente não precisa conhecer cada detalhe da engenharia; precisa saber quem está organizando as decisões, antecipando problemas e dando visibilidade ao que acontece.</p><div class="process-grid"><article class="process-card"><span class="num">01</span><h3>Planejar</h3><p>Orçamento, cronograma, estratégia de contratação e decisões que precisam acontecer antes de cada etapa.</p></article><article class="process-card"><span class="num">02</span><h3>Coordenar</h3><p>Equipes, fornecedores, compras e interfaces entre projetos para manter a obra fluindo na sequência correta.</p></article><article class="process-card"><span class="num">03</span><h3>Controlar</h3><p>Custos, avanço físico, qualidade dos serviços, registros e correções antes que desvios se acumulem.</p></article></div><details class="scope-details"><summary>Ver o escopo completo que faz parte do gerenciamento</summary><div class="scope-list"><span>Planejamento e orçamento</span><span>Contratações e compras</span><span>Coordenação das equipes</span><span>Controle de qualidade</span><span>Prazo e avanço físico</span><span>Registros e entrega</span></div></details></div></section>
+<section id="werthaus" class="section about"><div class="container about-grid"><div><div class="eyebrow">WERTHAUS Engenharia</div><h2 class="title">Engenharia próxima para decisões que têm impacto real em custo, prazo e qualidade.</h2><p class="copy">A WERTHAUS atua como o interlocutor técnico entre cliente, projetistas, fornecedores e equipes de execução. A proposta é transformar a complexidade da obra em decisões organizadas e informação clara.</p><div class="credential"><small>Engenheiro à frente da WERTHAUS</small><strong>João Paulo Lopes Werneck</strong><span>Engenheiro Civil • Registro CREA 2018013262 • Visto CREA-MG 283898</span></div></div><div class="about-img"><img src="assets/sobre.jpg" alt="Acompanhamento de obra pela WERTHAUS Engenharia" loading="lazy"></div></div></section>
+<section class="section"><div class="container"><div style="text-align:center"><div class="eyebrow">Dúvidas frequentes</div><h2 class="title">Perguntas comuns antes de começar uma obra.</h2></div><div class="faq-list">
+<details class="faq"><summary>Quanto custa uma obra de alto padrão?</summary><p>O custo varia principalmente com área construída, padrão de acabamento, sistema construtivo, topografia, projetos e nível de personalização. O simulador da WERTHAUS oferece uma faixa inicial de investimento com referências locais; um orçamento executivo exige projetos e especificações mais definidos.</p></details>
+<details class="faq"><summary>Qual a diferença entre obra por administração e preço fechado?</summary><p>Na obra por administração, os custos da construção são pagos pelo contratante e acompanhados de forma transparente, enquanto a empresa de engenharia é remunerada pela gestão. No preço fechado, a construtora assume um escopo previamente definido por um valor global. A escolha depende do grau de definição do projeto, da flexibilidade desejada e da distribuição de riscos.</p></details>
+<details class="faq"><summary>Quando devo contratar o gerenciamento da obra?</summary><p>Idealmente ainda durante o desenvolvimento dos projetos, antes das principais contratações e compras. Isso permite conectar projeto, orçamento e estratégia de execução desde cedo. Também é possível assumir o gerenciamento de uma obra já iniciada, após diagnóstico das condições existentes.</p></details>
+<details class="faq"><summary>Como a WERTHAUS controla o orçamento e evita que os custos saiam do previsto?</summary><p>O trabalho começa com orçamento e planejamento de contratações. Ao longo da execução, propostas são equalizadas, especificações são conferidas, compras são antecipadas quando necessário e o previsto é comparado com o realizado. Mudanças de projeto e imprevistos continuam podendo alterar custos, mas passam a ser identificados e discutidos com mais contexto.</p></details>
+<details class="faq"><summary>Quem compra os materiais e contrata os prestadores?</summary><p>No modelo por administração, a WERTHAUS conduz cotações, análise técnica, equalização e negociação, enquanto pagamentos e contratações seguem a estrutura definida com o cliente. A intenção é preservar transparência e permitir que cada decisão relevante de custo seja tomada com informação técnica.</p></details>
+<details class="faq"><summary>Como o prazo da obra é definido e acompanhado?</summary><p>O prazo parte do escopo, porte da obra, sequência executiva e disponibilidade das equipes e materiais. A partir disso é estruturado um cronograma, acompanhado pelo avanço físico e revisto quando surgem mudanças ou imprevistos que afetem o caminho crítico da execução.</p></details>
+<details class="faq"><summary>A WERTHAUS atende tanto construção nova quanto reforma?</summary><p>Sim. O escopo é definido de acordo com o projeto e pode envolver construção nova, reforma ou intervenção em obra já iniciada, tanto em ambientes residenciais quanto comerciais de alto padrão.</p></details>
+</div></div></section>
+<section id="contato" class="section cta"><div class="container"><div class="eyebrow">Próximo passo</div><h2 class="title">Tem um projeto em mente?</h2><p class="copy">Você pode começar pela simulação ou falar diretamente com um engenheiro. Sem formulário longo e sem intermediários.</p><div class="cta-actions"><a class="btn btn-primary" href="https://wa.me/5532999475023?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20uma%20obra." target="_blank" rel="noopener">Falar pelo WhatsApp</a><a class="btn btn-outline" href="simulador.html">Fazer uma simulação</a></div></div></section>
+</main>
+<footer><div class="container footer"><img src="assets/logo-werthaus-branco.png" alt="WERTHAUS Engenharia"><div>Juiz de Fora • MG &nbsp; | &nbsp; Sua obra, nosso compromisso.</div></div></footer>
 </body>
 </html>
